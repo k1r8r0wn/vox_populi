@@ -36,6 +36,7 @@ end
 group :development do
   gem 'web-console', '~> 3.1', '>= 3.1.1'
   gem 'spring'
+  gem 'faker', '~> 1.6', '>= 1.6.3'
 end
 
 group :test do
