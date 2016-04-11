@@ -7,7 +7,10 @@ gem 'rake', '~> 11.1', '>= 11.1.2'
 
 gem 'pg', '~> 0.18.4'
 
+gem 'slim-rails', '~> 3.0', '>= 3.0.1'
+
 gem 'sass-rails', '~> 5.0', '>= 5.0.4'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 
 gem 'uglifier', '~> 3.0'
 gem 'coffee-rails', '~> 4.1', '>= 4.1.1'
@@ -41,4 +44,3 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
   gem 'simplecov', '~> 0.11.2', require: false
 end
-
