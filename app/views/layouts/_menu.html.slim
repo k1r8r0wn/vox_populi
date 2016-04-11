@@ -1,0 +1,29 @@
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle.collapsed aria-expanded='false' data-target='#menu' data-toggle='collapse' type='button'
+        span.sr-only
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to 'Vox Populi', root_path, class: 'navbar-brand'
+    #menu.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li
+          = link_to 'Sign in', root_path, class: 'navbar-brand'
+        li
+          = link_to 'Sign up', root_path, class: 'navbar-brand'
+        li.dropdown
+          a.dropdown-toggle aria-expanded='false' aria-haspopup='true' data-toggle='dropdown' href="#" role='button'
+            | Dropdown
+            span.caret
+          ul.dropdown-menu
+            li
+              a href="#"  Action
+            li
+              a href="#"  Another action
+            li
+              a href="#"  Something else here
+            li.divider role="separator"
+            li
+              a href="#"  Separated link

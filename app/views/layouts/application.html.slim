@@ -10,5 +10,12 @@ html lang="en,ru"
     = csrf_meta_tags
 
   body
+    = render partial: 'layouts/menu'
+
+    p.notice
+      = notice
+    p.alert
+      = alert
+
     .container
       == yield
