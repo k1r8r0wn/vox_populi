@@ -1,0 +1,11 @@
+.row
+  .col-md-12.text-center
+
+    h2 List of all #{@themes.first.category.name} problems:
+
+    - @themes.each do |theme|
+
+      h2
+        = theme.title
+      p
+        = theme.content

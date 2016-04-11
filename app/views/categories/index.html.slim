@@ -1,1 +1,7 @@
-p Here will be all available problem categories later.
+.row
+  .col-md-12.text-center
+    h2 List of all problem categories
+
+    - @categories.each do |categorie|
+      p
+        = link_to categorie.name, category_themes_path(categorie)
