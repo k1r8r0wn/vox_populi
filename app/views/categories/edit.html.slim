@@ -1,0 +1,8 @@
+.row.text-center
+  .col-sm-6.col-sm-offset-3
+    h2.title Edit category
+
+    = simple_form_for @category do |c|
+      = render partial: 'form', locals: { c: c }
+      = c.submit 'Edit', class: 'btn btn-success'
+      = link_to 'Go back', category_themes_path(@category), class: 'btn btn-default'
