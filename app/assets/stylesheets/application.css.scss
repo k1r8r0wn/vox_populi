@@ -14,4 +14,15 @@
  *= require_self
  */
 
+@import "bootstrap-sprockets";
 @import 'bootstrap';
+
+html, body {
+  height: 100%;
+}
+
+.close {
+  font-size: 15px;
+  line-height: 1.5;
+}
+

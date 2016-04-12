@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :themes
 
-  validates :username, :email, presence: true
+  validates :username, presence: true
   validates :username, :email, uniqueness: true
   validates :email, format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9\.-]+\.[A-Za-z]+\Z/ }
 

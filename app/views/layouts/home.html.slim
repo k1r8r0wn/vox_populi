@@ -9,8 +9,7 @@ html lang="en,ru"
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
-  body
-    = render partial: 'layouts/menu'
+  body.home_page
 
     .container
       = flash_messages
