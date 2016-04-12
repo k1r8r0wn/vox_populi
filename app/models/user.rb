@@ -6,8 +6,7 @@ class User < ActiveRecord::Base
   has_many :categories
 
   validates :username, presence: true
-  validates :username, :email, uniqueness: true
-  validates :email, format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9\.-]+\.[A-Za-z]+\Z/ }
+  validates :username, uniqueness: true
 
   before_save :downcase_email
 
