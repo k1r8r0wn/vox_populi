@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :themes
+  has_many :categories
 
   validates :username, presence: true
   validates :username, :email, uniqueness: true

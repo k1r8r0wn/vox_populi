@@ -1,7 +1,9 @@
 .row
   .col-md-12.text-center
-    h2 List of all problem categories
+    h2.title List of all problem categories
 
     - @categories.each do |categorie|
       p
         = link_to categorie.name, category_themes_path(categorie)
+
+    = link_to 'Add new category', new_category_path, class: 'btn btn-success'

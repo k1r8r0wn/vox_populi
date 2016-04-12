@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
-  resources :categories, only: [:index] do
+  resources :categories, only: [:index, :new, :create, :edit, :update, :destroy] do
     resources :themes, only: [:index]
   end
 

@@ -8,6 +8,7 @@ gem 'rake', '~> 11.1', '>= 11.1.2'
 gem 'pg', '~> 0.18.4'
 
 gem 'slim-rails', '~> 3.0', '>= 3.0.1'
+gem 'simple_form', '~> 3.2', '>= 3.2.1'
 
 gem 'sass-rails', '~> 5.0', '>= 5.0.4'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
