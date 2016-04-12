@@ -15,11 +15,12 @@
         p
           = theme.content
 
+      = link_to 'Create new one', new_theme_path, class: 'btn btn-success', type: 'button'
+
     - if current_user
       = link_to 'Edit category', edit_category_path(@category), class: 'btn btn-primary'
       = link_to 'Delete category', category_path(@category),
                                    method: :delete,
                                    data: { confirm: 'Are you sure you want to delete this category and all its themes?' },
                                    class: 'btn btn-danger'
-    = link_to 'Create new one', new_theme_path, class: 'btn btn-success', type: 'button'
     = link_to 'Go back', categories_path,  class: 'btn btn-default'
