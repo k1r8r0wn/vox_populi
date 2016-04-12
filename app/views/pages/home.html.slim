@@ -1,4 +1,8 @@
-.row
-  .col-md-12.text-center
-    p “... The world you desire can be won. It exists.. it is real.. it is possible.. it's yours.”
-    i ― Ayn Rand, Atlas Shrugged
+.centered
+  .row
+    .col-md-12
+      blockquote
+        h1 “ The world you desire can be won. It exists.. it is real.. it is possible.. it's yours.”
+        footer Ayn Rand, Atlas Shrugged
+      = link_to 'View problem categories', categories_path, class: 'btn btn-primary', type: 'button'
+      = link_to 'Tell about your problem', new_theme_path, class: 'btn btn-success', type: 'button'
