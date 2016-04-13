@@ -36,7 +36,8 @@ namespace :db do
             Theme.create!(
               title: Faker::Lorem.words(2).join(' '),
               content: Faker::Lorem.sentence,
-              category_id: category.id
+              category_id: category.id,
+              user_id: admin.id
             )
           end
         end

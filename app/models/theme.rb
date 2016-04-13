@@ -1,6 +1,7 @@
 class Theme < ActiveRecord::Base
 
   belongs_to :category
+  belongs_to :user
 
   validates :title, :content, presence: true
   validates :title, uniqueness: { case_sensitive: false }
