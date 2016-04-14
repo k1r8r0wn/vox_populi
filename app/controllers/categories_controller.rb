@@ -13,9 +13,6 @@ class CategoriesController < ApplicationController
     @category = current_user.categories.new
   end
 
-  # # /categories/:id GET
-  # def show; end
-
   # /categories/:id/edit GET
   def edit; end
 
@@ -52,6 +49,7 @@ class CategoriesController < ApplicationController
 
   def find_category
     @category = Category.where(id: params[:id]).first
+    render_404 unless @category
   end
 
   def category_params
