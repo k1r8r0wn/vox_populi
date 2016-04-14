@@ -4,18 +4,16 @@
 
     - if @themes.empty?
       p.title There is no themes yet.
-      = link_to 'Create the first one', new_theme_path, class: 'btn btn-success', type: 'button'
+      = link_to 'Create the first one', new_category_theme_path(@category), class: 'btn btn-success', type: 'button'
 
     - else
 
       - @themes.each do |theme|
 
         h2
-          = theme.title
-        p
-          = theme.content
+          = link_to theme.title, category_theme_path(@category, theme)
 
-      = link_to 'Create new one', new_theme_path, class: 'btn btn-success', type: 'button'
+      = link_to 'Create new one', new_category_theme_path(@category), class: 'btn btn-success', type: 'button'
 
     - if current_user
       = link_to 'Edit category', edit_category_path(@category), class: 'btn btn-primary'

@@ -1,8 +1,8 @@
 .row.text-center
   .col-sm-6.col-sm-offset-3
-    h2.title Create new theme(problem)
+    h2.title Edit theme(problem)
 
     = simple_form_for [@category, @theme] do |t|
       = render partial: 'form', locals: {t: t}
-      = t.submit 'Create', class: 'btn btn-success'
+      = t.submit 'Update', class: 'btn btn-success'
       = link_to 'Go back', :back, class: 'btn btn-default'
