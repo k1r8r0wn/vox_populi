@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
   before_action :find_category, only: [:edit, :update, :destroy]
 
   # /categories GET
@@ -18,8 +18,8 @@ class CategoriesController < ApplicationController
 
   # /categories POST
   def create
-    @category = current_user.categories.create(category_params)
-    if @category.errors.empty?
+    @category = current_user.categories.new(category_params)
+    if @category.save
       redirect_to categories_path, success: "Category #{@category.name} is successfully created!"
     else
       flash.now[:error] = 'Oops, you made some mistakes below.'
@@ -29,8 +29,7 @@ class CategoriesController < ApplicationController
 
   # /categories/:id PUT, PATCH
   def update
-    @category.update_attributes(category_params)
-    if @category.errors.empty?
+    if @category.update_attributes(category_params)
       redirect_to category_themes_path(@category), success: "Category #{@category.name} is successfully updated!"
     else
       flash.now[:error] = 'Oops, you made some mistakes below.'
@@ -40,15 +39,18 @@ class CategoriesController < ApplicationController
 
   # /categories/:id DELETE
   def destroy
-    @category.destroy
-    flash[:success] = 'This category is successfully deleted!'
+    if @category.destroy
+      flash[:success] = 'This category is successfully deleted!'
+    else
+      flash[:error] = 'Oops, category could not be deleted.'
+    end
     redirect_to categories_path
   end
 
   private
 
   def find_category
-    @category = Category.where(id: params[:id]).first
+    @category = Category.find(params[:id])
     render_404 unless @category
   end
 

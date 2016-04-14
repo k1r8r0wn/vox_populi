@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
-  resources :categories, only: [:index, :new, :create, :edit, :update, :destroy] do
-    resources :themes, only: [:index, :show, :new, :create]
+  resources :categories, except: [:show] do
+    resources :themes
   end
 
   get 'themes/new' => 'themes#new_separate', as: :new_separate
