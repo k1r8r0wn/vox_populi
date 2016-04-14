@@ -3,3 +3,13 @@
     = @theme.title
   p
     = @theme.content
+
+  - if current_user
+    = link_to 'Edit theme', edit_category_theme_path(@category, @theme), class: 'btn btn-primary'
+
+    = link_to 'Delete theme', category_theme_path(@category, @theme),
+            method: :delete,
+            data: { confirm: 'Are you sure you want to delete this theme?' },
+            class: 'btn btn-danger'
+
+    = link_to 'Go back', categories_path, class: 'btn btn-default'
