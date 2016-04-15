@@ -40,6 +40,7 @@ class ThemesController < ApplicationController
   # /themes POST
   def create
     @theme = @category.themes.new(theme_params)
+    @theme.user_id = current_user.id
     if @theme.save
       redirect_to category_themes_path, success: "Theme #{@theme.title} is successfully created!"
     else

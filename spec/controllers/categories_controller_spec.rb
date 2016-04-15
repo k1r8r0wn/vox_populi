@@ -6,7 +6,7 @@ describe CategoriesController, type: :controller do
 
   describe 'GET #index' do
 
-    it "renders 'index' template if category is found" do
+    it "renders 'index' page if category is found" do
       get :index, id: category.id
       expect(response).to render_template('index')
     end
@@ -16,16 +16,16 @@ describe CategoriesController, type: :controller do
   describe 'GET #new' do
 
     # support/controller_macros.rb
-    current_user :new
-    not_current_user :new
+    current_user(:categories, :new)
+    not_current_user(:categories, :new)
 
   end
 
   describe 'GET #edit' do
 
     # support/controller_macros.rb
-    current_user :edit
-    not_current_user :edit
+    current_user(:categories, :edit)
+    not_current_user(:categories, :edit)
 
   end
 
@@ -41,7 +41,7 @@ describe CategoriesController, type: :controller do
       end
 
       it 'shows flash[:success] message' do
-        expect(flash[:success]).to eq('Category Test is successfully created!')
+        expect(flash[:success]).to eq("Category 'Test' is successfully created!")
       end
 
       it "renders 'new' page again if validations fail" do
@@ -52,7 +52,7 @@ describe CategoriesController, type: :controller do
     end
 
     # support/controller_macros.rb
-    not_current_user :create
+    not_current_user(:categories, :create)
 
   end
 
@@ -68,7 +68,7 @@ describe CategoriesController, type: :controller do
       end
 
       it 'shows flash[:success] message' do
-        expect(flash[:success]).to eq('Category Test2 is successfully updated!')
+        expect(flash[:success]).to eq("Category 'Test2' is successfully updated!")
       end
 
       it "renders 'edit' page again if validations fail" do
@@ -79,7 +79,7 @@ describe CategoriesController, type: :controller do
     end
 
     # support/controller_macros.rb
-    not_current_user :create
+    not_current_user(:categories, :create)
 
   end
 
@@ -96,8 +96,8 @@ describe CategoriesController, type: :controller do
     end
 
     # support/controller_macros.rb
-    current_user :destroy
-    not_current_user :create
+    current_user(:categories, :destroy)
+    not_current_user(:categories, :create)
 
   end
 

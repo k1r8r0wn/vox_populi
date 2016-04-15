@@ -20,7 +20,7 @@ class CategoriesController < ApplicationController
   def create
     @category = current_user.categories.new(category_params)
     if @category.save
-      redirect_to categories_path, success: "Category #{@category.name} is successfully created!"
+      redirect_to categories_path, success: "Category '#{@category.name}' is successfully created!"
     else
       flash.now[:error] = 'Oops, you made some mistakes below.'
       render :new
@@ -30,7 +30,7 @@ class CategoriesController < ApplicationController
   # /categories/:id PUT, PATCH
   def update
     if @category.update_attributes(category_params)
-      redirect_to category_themes_path(@category), success: "Category #{@category.name} is successfully updated!"
+      redirect_to category_themes_path(@category), success: "Category '#{@category.name}' is successfully updated!"
     else
       flash.now[:error] = 'Oops, you made some mistakes below.'
       render :edit

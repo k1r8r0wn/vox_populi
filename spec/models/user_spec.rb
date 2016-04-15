@@ -6,9 +6,9 @@ describe User, type: :model do
 
   context 'relationships' do
 
-    it { expect(user).to have_many(:categories) }
+    it { expect(user).to have_many(:categories).dependent(:destroy) }
 
-    it { expect(user).to have_many(:themes) }
+    it { expect(user).to have_many(:themes).dependent(:destroy) }
 
   end
 
