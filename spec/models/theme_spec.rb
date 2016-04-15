@@ -6,6 +6,8 @@ describe Theme, type: :model do
 
   context 'relationships' do
 
+    it { expect(theme).to belong_to(:user) }
+
     it { expect(theme).to belong_to(:category) }
 
   end

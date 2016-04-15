@@ -8,6 +8,8 @@ describe User, type: :model do
 
     it { expect(user).to have_many(:categories) }
 
+    it { expect(user).to have_many(:themes) }
+
   end
 
   context 'validations' do
