@@ -1,6 +1,8 @@
 FactoryGirl.define do
   factory :theme do
-    title 'Test title'
-    content 'Test content'
+    sequence(:title) { |i| "Title#{i}" }
+    sequence(:content) { |i| "Content#{i}" }
+    user
+    category
   end
 end

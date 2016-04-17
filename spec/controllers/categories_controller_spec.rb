@@ -1,14 +1,16 @@
 require 'rails_helper'
 
 describe CategoriesController, type: :controller do
+
   let(:category) { create(:category) }
   let(:user) { create(:user) }
 
   describe 'GET #index' do
 
-    it "renders 'index' template if category is found" do
-      get :index, id: category.id
+    it "renders 'index' page if categories are found" do
+      get :index, id: category
       expect(response).to render_template('index')
+      expect(response.status).to eq(200)
     end
 
   end
@@ -16,16 +18,21 @@ describe CategoriesController, type: :controller do
   describe 'GET #new' do
 
     # support/controller_macros.rb
-    current_user :new
-    not_current_user :new
+    current_user(:categories, :new)
+    before { get :new, id: category }
+    # support/controller_macros.rb
+    not_current_user(:new)
 
   end
 
   describe 'GET #edit' do
 
     # support/controller_macros.rb
-    current_user :edit
-    not_current_user :edit
+    current_user(:categories, :edit)
+
+    before { get :edit, id: category }
+    # support/controller_macros.rb
+    not_current_user(:edit)
 
   end
 
@@ -41,7 +48,7 @@ describe CategoriesController, type: :controller do
       end
 
       it 'shows flash[:success] message' do
-        expect(flash[:success]).to eq('Category Test is successfully created!')
+        expect(flash[:success]).to eq("Category 'Test' is successfully created!")
       end
 
       it "renders 'new' page again if validations fail" do
@@ -51,8 +58,9 @@ describe CategoriesController, type: :controller do
 
     end
 
+    before { get :create, id: category }
     # support/controller_macros.rb
-    not_current_user :create
+    not_current_user(:create)
 
   end
 
@@ -61,25 +69,26 @@ describe CategoriesController, type: :controller do
     context 'current_user' do
 
       before { sign_in(user) }
-      before { put :update, id: category.id, category: { name: 'Test2' } }
+      before { put :update, id: category, category: { name: 'Test2' } }
 
       it 'redirects to categories path if validations pass' do
         expect(response).to redirect_to(category_themes_path(category))
       end
 
       it 'shows flash[:success] message' do
-        expect(flash[:success]).to eq('Category Test2 is successfully updated!')
+        expect(flash[:success]).to eq("Category 'Test2' is successfully updated!")
       end
 
       it "renders 'edit' page again if validations fail" do
-        put :update, id: category.id, category: { name: nil }
+        put :update, id: category, category: { name: nil }
         expect(response).to render_template('edit')
       end
 
     end
 
+    before { get :update, id: category }
     # support/controller_macros.rb
-    not_current_user :create
+    not_current_user(:create)
 
   end
 
@@ -89,15 +98,15 @@ describe CategoriesController, type: :controller do
       before { sign_in(user) }
 
       it 'redirects to categories path when the category is destroyed successfully' do
-        delete :destroy, id: category.id
+        delete :destroy, id: category
         expect(response).to redirect_to(categories_path)
       end
 
     end
 
+    before { get :destroy, id: category }
     # support/controller_macros.rb
-    current_user :destroy
-    not_current_user :create
+    not_current_user(:destroy)
 
   end
 
