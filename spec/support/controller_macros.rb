@@ -6,21 +6,30 @@ module ControllerMacros
 
   module ClassMethods
 
-    def current_user(action)
+    def current_user(controller, action)
       context 'current_user' do
+
         before { sign_in(user) }
 
         unless "#{action}" == 'destroy'
-          it 'renders action template if category is found' do
-            get action, { id: category.id }
+          it "renders '#{action}' page if #{controller} are found" do
+            if "#{controller}" == 'categories'
+              get action, id: category
+            else
+              get action, category_id: category
+            end
             expect(response).to render_template(action)
             expect(response.status).to eq(200)
           end
         end
 
-        unless "#{action}" == 'new'
-          it 'renders 404 page when category is not found' do
-            get action, { id: 0 }
+        unless "#{action}" == 'new' || "#{action}" == 'new_separate'
+          it "renders 404 page when #{controller} are not found" do
+            if "#{controller}" == 'categories'
+              get action, id: 0
+            else
+              get action, category_id: 0
+            end
             expect(response.status).to eq(404)
           end
         end
@@ -30,9 +39,8 @@ module ControllerMacros
 
     def not_current_user(action)
       context 'not current_user' do
-        before { get action, { id: category.id } }
 
-        it "renders 'index' page if user is not signed in" do
+        it "redirects to 'index' page if user is not signed in" do
           expect(response).to redirect_to(new_user_session_path)
           expect(response.status).not_to eq(200)
         end

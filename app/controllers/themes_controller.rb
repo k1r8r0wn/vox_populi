@@ -26,33 +26,33 @@ class ThemesController < ApplicationController
   # /categories/:category_id/themes/:id/edit GET
   def edit; end
 
-  # /themes/create POST
-  def create_separate
-    @theme = current_user.themes.new(theme_params)
-    if @theme.save
-      redirect_to category_themes_path(@theme.category), success: "Theme #{@theme.title} is successfully created!"
-    else
-      flash.now[:error] = 'Oops, you made some mistakes below.'
-      render :new_separate
-    end
-  end
-
-  # /themes POST
+  # /categories/:category_id/themes POST
   def create
     @theme = @category.themes.new(theme_params)
     @theme.user_id = current_user.id
     if @theme.save
-      redirect_to category_themes_path, success: "Theme #{@theme.title} is successfully created!"
+      redirect_to category_theme_path(@category, @theme), success: "Theme '#{@theme.title}' is successfully created!"
     else
       flash.now[:error] = 'Oops, you made some mistakes below.'
       render :new
     end
   end
 
+  # /themes/create POST
+  def create_separate
+    @theme = current_user.themes.new(theme_params)
+    if @theme.save
+      redirect_to category_theme_path(@theme.category, @theme), success: "Theme '#{@theme.title}' is successfully created!"
+    else
+      flash.now[:error] = 'Oops, you made some mistakes below.'
+      render :new_separate
+    end
+  end
+
   # /categories/:category_id/themes/:id PUT, PATCH
   def update
     if @theme.update_attributes(theme_params)
-      redirect_to category_theme_path(@category, @theme), success: "Theme #{@theme.title} is successfully updated!"
+      redirect_to category_theme_path(@category, @theme), success: "Theme '#{@theme.title}' is successfully updated!"
     else
       flash.now[:error] = 'Oops, you made some mistakes below.'
       render :edit
