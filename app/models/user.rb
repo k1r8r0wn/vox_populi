@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :categories, dependent: :destroy
   has_many :themes, dependent: :destroy
+  has_many :comments
 
   validates :username, presence: true
   validates :username, uniqueness: true
