@@ -10,6 +10,8 @@ describe Theme, type: :model do
 
     it { expect(theme).to belong_to(:category) }
 
+    it { expect(theme).to have_many(:comments).dependent(:destroy) }
+
   end
 
   context 'validations' do

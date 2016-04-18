@@ -10,6 +10,8 @@ describe User, type: :model do
 
     it { expect(user).to have_many(:themes).dependent(:destroy) }
 
+    it { expect(user).to have_many(:comments) }
+
   end
 
   context 'validations' do
