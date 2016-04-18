@@ -17,23 +17,23 @@ RSpec.describe ThemesController, type: :controller do
 
   describe 'GET #new' do
 
-    # support/controller_macros.rb
-    current_user(:themes, :new)
+    # support/shared_examples.rb
+    it_should_behave_like 'current_user', 'themes', 'new'
 
     before { get :new, category_id: category }
-    # support/controller_macros.rb
-    not_current_user(:new)
+    # support/shared_examples.rb
+    it_should_behave_like 'not current_user'
 
   end
 
   describe 'GET #new_separate' do
 
-    # support/controller_macros.rb
-    current_user(:themes, :new_separate)
+    # support/shared_examples.rb
+    it_should_behave_like 'current_user', 'themes', 'new_separate'
 
     before { get :new_separate, category_id: category }
-    # support/controller_macros.rb
-    not_current_user(:new_separate)
+    # support/shared_examples.rb
+    it_should_behave_like 'not current_user'
 
   end
 
@@ -71,8 +71,8 @@ RSpec.describe ThemesController, type: :controller do
     end
 
     before { get :edit, category_id: category, id: theme }
-    # support/controller_macros.rb
-    not_current_user(:edit)
+    # support/shared_examples.rb
+    it_should_behave_like 'not current_user'
 
   end
 
@@ -100,8 +100,8 @@ RSpec.describe ThemesController, type: :controller do
 
     end
 
-    # support/controller_macros.rb
-    not_current_user(:create)
+    # support/shared_examples.rb
+    it_should_behave_like 'not current_user'
 
   end
 
@@ -130,8 +130,8 @@ RSpec.describe ThemesController, type: :controller do
 
     end
 
-    # support/controller_macros.rb
-    not_current_user(:create_separate)
+    # support/shared_examples.rb
+    it_should_behave_like 'not current_user'
 
   end
 
@@ -158,8 +158,8 @@ RSpec.describe ThemesController, type: :controller do
 
     end
 
-    # support/controller_macros.rb
-    not_current_user(:update)
+    # support/shared_examples.rb
+    it_should_behave_like 'not current_user'
 
   end
 
@@ -176,8 +176,8 @@ RSpec.describe ThemesController, type: :controller do
     end
 
     before { get :edit, category_id: category, id: theme }
-    # support/controller_macros.rb
-    not_current_user(:destroy)
+    # support/shared_examples.rb
+    it_should_behave_like 'not current_user'
 
   end
 
