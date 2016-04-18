@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from ActiveSupport::MessageVerifier::InvalidSignature, with: :render_500
 
-  add_flash_types :success
+  add_flash_types :success, :error
 
   def render_403
     render file: 'public/403.html', status: 403, layout: false

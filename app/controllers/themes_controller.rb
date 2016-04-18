@@ -1,8 +1,8 @@
 class ThemesController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :find_category, except: [:new_separate, :create_separate]
-  before_action :find_theme, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, except: [:new_separate, :create_separate]
+  before_action :set_theme, only: [:show, :edit, :update, :destroy]
 
   # /categories/:category_id/themes GET
   def index
@@ -71,14 +71,12 @@ class ThemesController < ApplicationController
 
   private
 
-  def find_theme
+  def set_theme
     @theme = @category.themes.find(params[:id])
-    render_404 unless @theme
   end
 
-  def find_category
+  def set_category
     @category = Category.find(params[:category_id])
-    render_404 unless @category
   end
 
   def theme_params

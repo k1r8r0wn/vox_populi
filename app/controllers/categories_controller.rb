@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 
   before_action :authenticate_user!, except: [:index]
-  before_action :find_category, only: [:edit, :update, :destroy]
+  before_action :set_category, only: [:edit, :update, :destroy]
 
   # /categories GET
   def index
@@ -49,9 +49,8 @@ class CategoriesController < ApplicationController
 
   private
 
-  def find_category
+  def set_category
     @category = Category.find(params[:id])
-    render_404 unless @category
   end
 
   def category_params
