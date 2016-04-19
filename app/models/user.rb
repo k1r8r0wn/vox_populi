@@ -7,8 +7,7 @@ class User < ActiveRecord::Base
   has_many :themes, dependent: :destroy
   has_many :comments
 
-  validates :username, presence: true
-  validates :username, uniqueness: true
+  validates :username, presence: true, uniqueness: true
 
   before_save :downcase_email
 

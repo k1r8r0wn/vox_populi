@@ -4,8 +4,8 @@ class Theme < ActiveRecord::Base
   belongs_to :user
   has_many   :comments, dependent: :destroy, as: :commentable
 
-  validates :title, :content, presence: true
-  validates :title, uniqueness: { case_sensitive: false }
+  validates :title, presence: true, uniqueness: { case_sensitive: false }
+  validates :content, presence: true, length: { maximum: 3000 }
 
   before_save :capitalize_title
 
