@@ -7,7 +7,8 @@ li
   .content
     p = comment.content
 
-    = link_to 'Add a Reply', new_comment_comment_path(comment), remote: true, class: 'reply'
+  - if current_user
+    = link_to 'Add a Reply', new_comment_comment_path(comment), remote: true, id: "comment_#{comment.id}"
 
   - if comment.comments.any?
     ul
