@@ -17,22 +17,23 @@ describe CategoriesController, type: :controller do
 
   describe 'GET #new' do
 
-    # support/controller_macros.rb
-    current_user(:categories, :new)
+    # support/shared_examples.rb
+    it_should_behave_like 'current_user', 'categories', 'new'
+
     before { get :new, id: category }
-    # support/controller_macros.rb
-    not_current_user(:new)
+    # support/shared_examples.rb
+    it_should_behave_like 'not current_user'
 
   end
 
   describe 'GET #edit' do
 
-    # support/controller_macros.rb
-    current_user(:categories, :edit)
+    # support/shared_examples.rb
+    it_should_behave_like 'current_user', 'categories', 'edit'
 
     before { get :edit, id: category }
-    # support/controller_macros.rb
-    not_current_user(:edit)
+    # support/shared_examples.rb
+    it_should_behave_like 'not current_user'
 
   end
 
@@ -59,8 +60,8 @@ describe CategoriesController, type: :controller do
     end
 
     before { get :create, id: category }
-    # support/controller_macros.rb
-    not_current_user(:create)
+    # support/shared_examples.rb
+    it_should_behave_like 'not current_user'
 
   end
 
@@ -87,8 +88,8 @@ describe CategoriesController, type: :controller do
     end
 
     before { get :update, id: category }
-    # support/controller_macros.rb
-    not_current_user(:create)
+    # support/shared_examples.rb
+    it_should_behave_like 'not current_user'
 
   end
 
@@ -105,8 +106,8 @@ describe CategoriesController, type: :controller do
     end
 
     before { get :destroy, id: category }
-    # support/controller_macros.rb
-    not_current_user(:destroy)
+    # support/shared_examples.rb
+    it_should_behave_like 'not current_user'
 
   end
 
