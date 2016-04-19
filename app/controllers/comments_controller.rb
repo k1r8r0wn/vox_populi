@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
   before_action :set_commentable
 
   def new
-    # @comment = Comment.new
     @comment = @commentable.comments.new
     respond_to do |format|
       format.html
@@ -13,8 +12,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    # @theme = Theme.find(params[:theme_id])
-    # @comment = @theme.comments.new(comment_params)
     @comment = @commentable.comments.new(comment_params)
     @comment.user_id = current_user.id
 

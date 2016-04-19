@@ -10,33 +10,36 @@
 
       = link_to 'Delete theme', category_theme_path(@category, @theme),
               method: :delete,
-              data: { confirm: 'Are you sure you want to delete this theme?' },
+              data: { confirm: "Are you sure you want to delete this theme & all it's comments?" },
               class: 'btn btn-danger'
 
-      = link_to 'Go back', categories_path, class: 'btn btn-default'
+      = link_to 'Go back', category_themes_path(@category), class: 'btn btn-default'
 
 .row
-  - if current_user
+  - if all_comments.count > 0
 
+    h3.text-center Comments (#{all_comments.count})
     .col-md-6.col-md-offset-4
       ul
         = render(partial: 'comments/comment', collection: @theme.comments)
+  - else
 
+    p.text-center There is no comments yet.
+
+
+  - if current_user
 
     .col-md-4.col-md-offset-4.text-center
       h3.text-center Leave your comment
       = simple_form_for [@theme, Comment.new] do |t|
-        = t.input :content, as: :text, input_html: {rows: 2}
+        = t.input :content, as: :text, input_html: {rows: 2}, autofocus: true
         = t.submit 'Submit', class: 'btn btn-success'
 
   - else
 
-    p.text-center
+    .col-md-4.col-md-offset-4.text-center
       ' Want to leave comments?
       = link_to 'Sign in', new_user_session_path
       '  or
       = link_to 'Sign up', new_user_registration_path
       | .
-
-
-
