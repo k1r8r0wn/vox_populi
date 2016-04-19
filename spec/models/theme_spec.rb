@@ -6,9 +6,9 @@ describe Theme, type: :model do
 
   context 'relationships' do
 
-    it { expect(theme).to belong_to(:user) }
-
     it { expect(theme).to belong_to(:category) }
+
+    it { expect(theme).to belong_to(:user) }
 
     it { expect(theme).to have_many(:comments).dependent(:destroy) }
 
@@ -21,6 +21,8 @@ describe Theme, type: :model do
     it { expect(theme).to validate_presence_of(:content) }
 
     it { expect(theme).to validate_uniqueness_of(:title).case_insensitive }
+
+    it { expect(theme).to validate_length_of(:content).is_at_most(3000) }
 
   end
 
