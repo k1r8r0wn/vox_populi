@@ -9,8 +9,12 @@ Rails.application.routes.draw do
   get 'themes/new' => 'themes#new_separate', as: :new_separate
   post 'themes/create' => 'themes#create_separate', as: :create_separate
 
-  resources :themes do
-    resources :comments, only: [:create]
+  resources :themes, only: [:index] do
+    resources :comments, only: [:new, :create]
+  end
+
+  resources :comments,  only: [:index] do
+    resources :comments, only: [:new, :create]
   end
 
   root 'pages#home'
