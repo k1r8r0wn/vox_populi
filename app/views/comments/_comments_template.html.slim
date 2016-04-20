@@ -1,0 +1,8 @@
+- comments.each do |comment|
+  li
+    = render(partial: 'comments/comment', locals: { comment: comment })
+
+  - if current_user && comment.root_comment?
+    = link_to 'Add a Reply', new_category_theme_comment_path(@category, @theme), remote: true
+  - else
+    ' Link to

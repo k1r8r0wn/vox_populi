@@ -1,15 +1,13 @@
-li
-  .header
-    b = comment.user.username
-    '  at
-    b = comment.created_at.strftime('%d %B %Y | %I:%M %p %Z')
-    '  said:
-  .content
-    p = comment.content
+.header
+  b = comment.user.username
+  '  at
+  b = comment.created_at.strftime('%d %B %Y | %I:%M %p %Z')
+  '  said:
 
-  - if current_user
-    = link_to 'Add a Reply', new_comment_comment_path(comment), remote: true, id: "comment_#{comment.id}"
+.content
+  p = comment.content
 
-  - if comment.comments.any?
-    ul
-      = render(partial: 'comments/comment', collection: comment.comments)
+- if comment.subcomments.present?
+  ul
+    = render(partial: 'comments/comments_template', locals: {comments: comment.subcomments})
+

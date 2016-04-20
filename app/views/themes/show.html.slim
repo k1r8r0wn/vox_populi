@@ -16,22 +16,16 @@
       = link_to 'Go back', category_themes_path(@category), class: 'btn btn-default'
 
 .row
-  - if all_comments.count > 0
-
-    h3.text-center Comments (#{all_comments.count})
-    .col-md-6.col-md-offset-4
-      ul
-        = render(partial: 'comments/comment', collection: @theme.comments)
-  - else
-
-    p.text-center There is no comments yet.
-
+  h3.text-center Comments
+  .col-md-6.col-md-offset-4
+    ul
+      = render(partial: 'comments/comments_template', locals: { comments: @root_comments } )
 
   - if current_user
 
     .col-md-4.col-md-offset-4.text-center
       h3.text-center Leave your comment
-      = simple_form_for [@theme, Comment.new] do |t|
+      = simple_form_for [@category, @theme, Comment.new] do |t|
         = t.input :content, as: :text, input_html: {rows: 2}, autofocus: true
         = t.submit 'Submit', class: 'btn btn-success'
 
