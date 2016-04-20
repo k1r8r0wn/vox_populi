@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419044625) do
+ActiveRecord::Schema.define(version: 20160420093613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,25 +28,25 @@ ActiveRecord::Schema.define(version: 20160419044625) do
   create_table "comments", force: :cascade do |t|
     t.text     "content"
     t.integer  "user_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
+    t.integer  "theme_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "root_comment_id"
   end
 
+  add_index "comments", ["theme_id"], name: "index_comments_on_theme_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "themes", force: :cascade do |t|
     t.integer  "category_id"
     t.string   "title",       default: "", null: false
     t.text     "content",     default: "", null: false
+    t.integer  "user_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.integer  "user_id"
   end
 
   add_index "themes", ["category_id"], name: "index_themes_on_category_id", using: :btree
-  add_index "themes", ["user_id"], name: "index_themes_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",               default: "", null: false
