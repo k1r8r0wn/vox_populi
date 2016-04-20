@@ -21,7 +21,9 @@ class ThemesController < ApplicationController
   end
 
   # /categories/:category_id/themes/:id GET
-  def show; end
+  def show
+    @root_comments = @theme.comments.root_comments
+  end
 
   # /categories/:category_id/themes/:id/edit GET
   def edit; end

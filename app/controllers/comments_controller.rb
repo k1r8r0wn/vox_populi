@@ -1,35 +1,36 @@
 class CommentsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_commentable
+  before_action :set_category
+  before_action :set_theme
 
   def new
-    @comment = @commentable.comments.new
+    @comment = @theme.comments.new
     respond_to do |format|
-      format.html
       format.js
     end
   end
 
   def create
-    @comment = @commentable.comments.new(comment_params)
+    @comment = @theme.comments.new(comment_params)
     @comment.user_id = current_user.id
 
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to :back, success: 'Your comment is successfully added below!' }
-        format.js
-      else
-        format.html { redirect_to :back, error: @comment.errors[:content].first }
-      end
+    if @comment.save
+      redirect_to :back, success: 'Your comment is successfully added below!'
+    else
+      redirect_to :back, error: @comment.errors[:content].first
     end
   end
 
   private
 
-  def set_commentable
-    @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
-    @commentable = Theme.find_by_id(params[:theme_id]) if params[:theme_id]
+  def set_category
+    category_id =  Theme.find(params[:theme_id]).category_id
+    @category = Category.find(category_id)
+  end
+
+  def set_theme
+    @theme = @category.themes.find(params[:theme_id])
   end
 
   def comment_params
