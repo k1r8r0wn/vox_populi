@@ -1,0 +1,5 @@
+/= simple_form_for [@category, @theme, @comment] do |t|
+  /= t.input :content, as: :text, input_html: {rows: 2}, autofocus: true
+  /= t.submit 'Reply', class: 'btn btn-success'
+
+' There will be a form to post a reply to comment

@@ -3,6 +3,7 @@
     = render(partial: 'comments/comment', locals: { comment: comment })
 
   - if current_user && comment.root_comment?
-    = link_to 'Add a Reply', new_category_theme_comment_path(@category, @theme), remote: true
+    = link_to 'Add a reply to comment', new_category_theme_comment_subcomment_path(@category, @theme, comment), remote: true, class: 'reply'
   - else
-    ' Link to
+    ' Add a reply to subcomment
+

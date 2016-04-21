@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  
+
   resources :categories, except: [:show] do
     resources :themes do
-      resources :comments, only: [:new, :create]
+      resources :comments, only: [:new, :create] do
+        resources :subcomments, only: [:new, :create]
+      end
     end
   end
 
