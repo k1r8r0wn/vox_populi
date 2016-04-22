@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :categories, except: [:show] do
     resources :themes do
-      resources :comments, only: [:new, :create] do
-        resources :subcomments, only: [:new, :create]
+      resources :comments, except: [:index, :show] do
+        resources :subcomments, except: [:index, :show]
       end
     end
   end
