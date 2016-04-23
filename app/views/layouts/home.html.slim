@@ -12,5 +12,6 @@ html lang="en,ru"
   body.home_page
 
     .container
-      = flash_messages
+      div id = 'notifications-wrapper'
+        = flash_messages
       == yield

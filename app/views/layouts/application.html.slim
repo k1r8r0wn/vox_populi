@@ -13,5 +13,6 @@ html lang="en,ru"
     = render partial: 'layouts/menu'
 
     .container
-      = flash_messages
+      div id = 'notifications-wrapper'
+        = flash_messages
       == yield

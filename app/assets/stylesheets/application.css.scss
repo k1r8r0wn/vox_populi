@@ -21,6 +21,14 @@ html, body {
   height: 100%;
 }
 
+#notifications-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
 .close {
   font-size: 15px;
   line-height: 1.5;
