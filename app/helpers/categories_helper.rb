@@ -1,2 +1,1 @@
-module CategoriesHelper
-end
+module CategoriesHelper; end

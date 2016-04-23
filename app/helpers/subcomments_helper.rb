@@ -1,2 +1,1 @@
-module SubcommentsHelper
-  ; end
+module SubcommentsHelper; end
