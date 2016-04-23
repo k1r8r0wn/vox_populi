@@ -1,5 +1,5 @@
-/= simple_form_for [@category, @theme, @comment] do |t|
-  /= t.input :content, as: :text, input_html: {rows: 2}, autofocus: true
-  /= t.submit 'Reply', class: 'btn btn-success'
-
-' There will be a form to post a reply to comment
+= form_tag category_theme_comment_subcomments_path(@category, @theme, @comment), method: 'post', class: 'text-center' do
+  .form-group
+    = text_area_tag 'subcomment[content]', nil, class: 'form-control', autofocus: true, placeholder: 'Content'
+  = submit_tag 'Reply', class: 'btn btn-success'
+  = link_to 'Cancel', :back, class: 'btn btn-default'

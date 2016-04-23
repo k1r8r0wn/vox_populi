@@ -1,9 +1,7 @@
 - comments.each do |comment|
-  li
-    = render(partial: 'comments/comment', locals: { comment: comment })
-
-  - if current_user && comment.root_comment?
-    = link_to 'Add a reply to comment', new_category_theme_comment_subcomment_path(@category, @theme, comment), remote: true, class: 'reply'
+  - if comment.root_comment?
+    li class = 'comment-#{comment.id}'
+      = render(partial: 'comments/comment', locals: { comment: comment })
   - else
-    ' Add a reply to subcomment
-
+    li class = 'child-comment comment-#{comment.id}'
+      = render(partial: 'comments/comment', locals: { comment: comment })

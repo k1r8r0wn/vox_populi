@@ -1,0 +1,4 @@
+- if @comment.destroyed?
+  | $('.comment-#{@comment.id}').html("<div class='alert alert-success text-center'>#{flash[:success]}</div>").fadeOut(3000);
+- else
+  | $('.comment-#{@comment.id}').prepend("<div class='alert alert-error'>#{flash[:error]}</div>");

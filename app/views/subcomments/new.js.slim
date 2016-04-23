@@ -1,1 +1,1 @@
-| $('.reply').replaceWith('#{j render(partial: 'subcomments/form')}');
+| $('#{j render(partial: 'subcomments/form')}').appendTo('.comment-#{@comment.id}-body');
