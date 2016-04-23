@@ -1,7 +1,7 @@
 class Category < ActiveRecord::Base
 
   belongs_to :user
-  has_many :themes, dependent: :destroy
+  has_many   :themes, dependent: :destroy
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 

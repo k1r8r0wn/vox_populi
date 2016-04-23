@@ -1,14 +1,13 @@
 require 'rails_helper'
 
 describe Comment, type: :model do
-
   let(:comment) { create(:comment) }
 
   context 'relationships' do
 
-    it { expect(comment).to have_many(:comments).dependent(:destroy)}
+    it { expect(comment).to have_many(:subcomments).dependent(:destroy)}
 
-    it { expect(comment).to belong_to(:commentable).dependent(:destroy) }
+    it { expect(comment).to belong_to(:theme) }
 
     it { expect(comment).to belong_to(:user) }
 
