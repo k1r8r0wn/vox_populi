@@ -11,18 +11,17 @@
   - if current_user
     .links
 
-      = link_to '', new_category_theme_comment_subcomment_path(@category, @theme, comment), remote: true, class: 'glyphicon glyphicon-share-alt green'
+      = link_to '', new_category_theme_comment_subcomment_path(@category, @theme, comment), remote: true, class: 'glyphicon glyphicon-share-alt green comment-reply'
 
       - unless comment.editable?
-        = link_to '', edit_category_theme_comment_path(@category, @theme, comment), remote: true, class: 'glyphicon glyphicon-pencil'
+        = link_to 'Edit', edit_category_theme_comment_path(@category, @theme, comment), remote: true, class: 'glyphicon glyphicon-pencil comment-edit'
 
       = link_to '', category_theme_comment_path(@category, @theme, comment),
                 method: :delete,
                 data: { confirm: 'Are you sure you want to delete this comment & all subcomments?' },
-                class: 'glyphicon glyphicon-trash red',
+                class: 'glyphicon glyphicon-trash red comment-delete',
                 remote: true
 
 - if comment.subcomments.present?
   ul
     = render(partial: 'comments/comments_template', locals: {comments: comment.subcomments})
-

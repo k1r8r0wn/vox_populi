@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Showing comments' do
+describe 'Showing comments', type: :feature do
 
   let(:user) { create(:user) }
   let!(:category) { create(:category) }
