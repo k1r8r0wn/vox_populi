@@ -9,6 +9,7 @@ namespace :db do
         Theme.delete_all
         Category.delete_all
         User.delete_all
+        Comment.delete_all
         print "done!\n"
 
       end

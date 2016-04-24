@@ -22,6 +22,8 @@ class SubcommentsController < ApplicationController
     redirect_to :back
   end
 
+  private
+
   def set_category
     @category = Category.find(params[:category_id])
   end

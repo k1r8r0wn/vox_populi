@@ -49,8 +49,7 @@ class CommentsController < ApplicationController
   private
 
   def set_category
-    category_id = Theme.find(params[:theme_id]).category_id
-    @category = Category.find(category_id)
+    @category = Category.find(params[:category_id])
   end
 
   def set_theme
