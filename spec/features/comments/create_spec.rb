@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'features/features_helper'
 
 describe 'Creating comments', type: :feature do
 

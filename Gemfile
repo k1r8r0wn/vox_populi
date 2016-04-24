@@ -44,6 +44,7 @@ group :test do
   gem 'capybara', '~> 2.7'
   gem 'capybara-email', '~> 2.5'
   gem 'capybara-webkit', '~> 1.10', '>= 1.10.1'
+  gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
   gem 'simplecov', '~> 0.11.2', require: false
 end

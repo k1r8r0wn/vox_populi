@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'features/features_helper'
 
 describe 'Showing comments', type: :feature do
 
