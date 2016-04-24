@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe CategoriesController, type: :controller do
 
-  let(:category) { create(:category) }
   let(:user) { create(:user) }
+  let(:category) { create(:category) }
 
   describe 'GET #index' do
 

@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   before_action :set_category, except: [:index, :show]
   before_action :set_theme, except: [:index, :show]
   before_action :set_comment, only: [:edit, :update, :destroy]
-  respond_to :js, only: [:edit, :destroy]
+  respond_to    :js, only: [:edit, :destroy]
 
   def new
     @comment = @theme.comments.new
