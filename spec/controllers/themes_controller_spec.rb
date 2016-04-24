@@ -7,39 +7,32 @@ RSpec.describe ThemesController, type: :controller do
   let(:theme) { create(:theme, category: category) }
 
   describe 'GET #index' do
-
     it "renders 'index' page if themes are found" do
       get :index, category_id: category
       expect(response).to render_template('index')
       expect(response.status).to eq(200)
     end
-
   end
 
   describe 'GET #new' do
-
     # support/shared_examples.rb
     it_should_behave_like 'current_user', 'themes', 'new'
 
     before { get :new, category_id: category }
     # support/shared_examples.rb
     it_should_behave_like 'not current_user'
-
   end
 
   describe 'GET #new_separate' do
-
     # support/shared_examples.rb
     it_should_behave_like 'current_user', 'themes', 'new_separate'
 
     before { get :new_separate, category_id: category }
     # support/shared_examples.rb
     it_should_behave_like 'not current_user'
-
   end
 
   describe 'GET #show' do
-
     it "renders 'show' page if theme is found" do
       get :show, category_id: category, id: theme
       expect(response).to render_template('show')
@@ -50,7 +43,6 @@ RSpec.describe ThemesController, type: :controller do
       get :show, category_id: 0, id: 0
       expect(response.status).to eq(404)
     end
-
   end
 
   describe 'GET #edit' do
@@ -74,7 +66,6 @@ RSpec.describe ThemesController, type: :controller do
     before { get :edit, category_id: category, id: theme }
     # support/shared_examples.rb
     it_should_behave_like 'not current_user'
-
   end
 
   describe 'POST #create' do
@@ -103,7 +94,6 @@ RSpec.describe ThemesController, type: :controller do
 
     # support/shared_examples.rb
     it_should_behave_like 'not current_user'
-
   end
 
   describe 'POST #create_separate' do
@@ -128,12 +118,10 @@ RSpec.describe ThemesController, type: :controller do
         post :create_separate, theme: { category_id: category, title: nil, content: 'Content' }
         expect(response).to render_template('new_separate')
       end
-
     end
 
     # support/shared_examples.rb
     it_should_behave_like 'not current_user'
-
   end
 
   describe 'PUT, PATCH #update' do
@@ -156,7 +144,6 @@ RSpec.describe ThemesController, type: :controller do
         put :update, category_id: category, id: theme, theme: { title: nil }
         expect(response).to render_template('edit')
       end
-
     end
 
     # support/shared_examples.rb
@@ -165,7 +152,6 @@ RSpec.describe ThemesController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-
     context 'current_user' do
       before { sign_in(user) }
 
@@ -173,13 +159,11 @@ RSpec.describe ThemesController, type: :controller do
         delete :destroy, category_id: category, id: theme
         expect(response).to redirect_to(category_themes_path)
       end
-
     end
 
     before { get :edit, category_id: category, id: theme }
     # support/shared_examples.rb
     it_should_behave_like 'not current_user'
-
   end
 
 end

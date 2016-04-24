@@ -6,39 +6,32 @@ describe CategoriesController, type: :controller do
   let(:category) { create(:category) }
 
   describe 'GET #index' do
-
     it "renders 'index' page if categories are found" do
       get :index, id: category
       expect(response).to render_template('index')
       expect(response.status).to eq(200)
     end
-
   end
 
   describe 'GET #new' do
-
     # support/shared_examples.rb
     it_should_behave_like 'current_user', 'categories', 'new'
 
     before { get :new, id: category }
     # support/shared_examples.rb
     it_should_behave_like 'not current_user'
-
   end
 
   describe 'GET #edit' do
-
     # support/shared_examples.rb
     it_should_behave_like 'current_user', 'categories', 'edit'
 
     before { get :edit, id: category }
     # support/shared_examples.rb
     it_should_behave_like 'not current_user'
-
   end
 
   describe 'POST #create' do
-
     context 'current_user' do
 
       before { sign_in(user) }
@@ -56,17 +49,14 @@ describe CategoriesController, type: :controller do
         post :create, category: { name: nil }
         expect(response).to render_template('new')
       end
-
     end
 
     before { get :create, id: category }
     # support/shared_examples.rb
     it_should_behave_like 'not current_user'
-
   end
 
   describe 'PUT, PATCH #update' do
-
     context 'current_user' do
 
       before { sign_in(user) }
@@ -90,11 +80,9 @@ describe CategoriesController, type: :controller do
     before { get :update, id: category }
     # support/shared_examples.rb
     it_should_behave_like 'not current_user'
-
   end
 
   describe 'DELETE #destroy' do
-
     context 'current_user' do
       before { sign_in(user) }
 
@@ -108,7 +96,6 @@ describe CategoriesController, type: :controller do
     before { get :destroy, id: category }
     # support/shared_examples.rb
     it_should_behave_like 'not current_user'
-
   end
 
 end
