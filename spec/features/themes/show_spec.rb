@@ -22,7 +22,7 @@ describe 'Showing comments', type: :feature do
       end
 
       it "displays 'Leave the first comment' message" do
-        within '.comment-form' do
+        within '.comments-wrapper' do
           expect(page).to have_content('Leave the first comment')
         end
       end
@@ -38,7 +38,7 @@ describe 'Showing comments', type: :feature do
       it_behaves_like 'posted comment'
 
       it "displays the 'Want to leave comments? Sign in or Sign up.' message" do
-        within '.comment-form' do
+        within '.comments-wrapper' do
           expect(page).to have_content('Want to leave comments? Sign in or Sign up.')
         end
       end
@@ -53,7 +53,7 @@ describe 'Showing comments', type: :feature do
       it_behaves_like 'posted comment'
 
       it "displays 'Leave your comment' comment" do
-        within '.comment-form' do
+        within '.comments-wrapper' do
           expect(page).to have_content('Leave your comment')
         end
       end
