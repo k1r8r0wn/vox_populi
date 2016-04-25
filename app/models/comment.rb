@@ -13,7 +13,7 @@ class Comment < ActiveRecord::Base
   end
 
   def editable?
-    self.created_at < (Time.now - 5.minute)
+    self.created_at > (Time.now - 5.minute)
   end
 
 end

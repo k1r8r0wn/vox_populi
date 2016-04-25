@@ -15,7 +15,7 @@
                 remote: true,
                 class: 'glyphicon glyphicon-share-alt green comment-reply'
 
-      - unless comment.editable?
+      - if comment.editable?
         = link_to '', edit_category_theme_comment_path(@category, @theme, comment),
                 class: 'glyphicon glyphicon-pencil comment-edit',
                 remote: true

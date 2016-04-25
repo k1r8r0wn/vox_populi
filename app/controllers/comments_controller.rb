@@ -24,13 +24,16 @@ class CommentsController < ApplicationController
 
   def edit; end
 
+  # TODO: Needs refactoring
   def update
     if @comment.editable?
-      flash[:error] = 'Comment can be updated only in 5 minutes after creation.'
-    elsif @comment.update_attributes(comment_params)
-      flash[:success] = 'Your comment is successfully updated!'
+      if @comment.update_attributes(comment_params)
+        flash[:success] = 'Your comment is successfully updated!'
+      else
+        flash[:error] = "Your comment's content can't be blank!"
+      end
     else
-      flash[:error] = "Your comment's content can't be blank!"
+      flash[:error] = 'Comment can be updated only in 5 minutes after creation.'
     end
     redirect_to :back
   end
