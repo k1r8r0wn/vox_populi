@@ -11,10 +11,14 @@
   - if current_user
     .links
 
-      = link_to '', new_category_theme_comment_subcomment_path(@category, @theme, comment), remote: true, class: 'glyphicon glyphicon-share-alt green comment-reply'
+      = link_to '', new_category_theme_comment_subcomment_path(@category, @theme, comment),
+                remote: true,
+                class: 'glyphicon glyphicon-share-alt green comment-reply'
 
       - unless comment.editable?
-        = link_to 'Edit', edit_category_theme_comment_path(@category, @theme, comment), remote: true, class: 'glyphicon glyphicon-pencil comment-edit'
+        = link_to '', edit_category_theme_comment_path(@category, @theme, comment),
+                class: 'glyphicon glyphicon-pencil comment-edit',
+                remote: true
 
       = link_to '', category_theme_comment_path(@category, @theme, comment),
                 method: :delete,

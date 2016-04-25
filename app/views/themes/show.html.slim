@@ -22,7 +22,7 @@
       ul
         = render(partial: 'comments/comments_template', locals: { comments: @root_comments } )
 
-  .col-md-6.col-md-offset-3.text-center.comment-form
+  .col-md-6.col-md-offset-3.text-center
     - if current_user
 
       - if @theme.comments.empty?
