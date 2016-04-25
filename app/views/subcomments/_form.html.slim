@@ -1,4 +1,4 @@
-= form_tag category_theme_comment_subcomments_path(@category, @theme, @comment), method: 'post', class: 'text-center' do
+= form_tag category_theme_comment_subcomments_path(@category, @theme, @comment), method: 'post', class: 'text-center reply_comment-form' do
   .form-group
     = text_area_tag 'subcomment[content]', nil, class: 'form-control', autofocus: true, placeholder: 'Content'
   = submit_tag 'Reply', class: 'btn btn-success'
