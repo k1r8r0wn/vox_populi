@@ -11,7 +11,7 @@ describe 'Deleting comments', type: :feature do
     sign_in(user)
     visit category_theme_path(category, theme)
     find('.comment-delete').click
-    page.driver.browser.accept_js_confirms #deprecated
+    page.execute_script('window.confirm = function() { return true }')
   end
 
   it 'deletes comment after clicking delete link', js: true do
