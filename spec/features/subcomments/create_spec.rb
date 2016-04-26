@@ -31,7 +31,6 @@ describe 'Creating subcomments', type: :feature do
     it 'displays the flash[:success] message' do
       expect(page).to have_content('Your comment is successfully added below!')
     end
-
   end
 
   context 'Subcomment has no content', js: true  do

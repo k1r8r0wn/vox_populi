@@ -20,7 +20,6 @@ class User < ActiveRecord::Base
 
   private
 
-  # TODO: Need spec
   def set_default_role
     self.role ||= :user
   end

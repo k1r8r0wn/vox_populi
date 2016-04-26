@@ -46,7 +46,6 @@ RSpec.describe ThemesController, type: :controller do
   end
 
   describe 'GET #edit' do
-
     context 'current_user' do
       before { sign_in(user) }
 
@@ -60,7 +59,6 @@ RSpec.describe ThemesController, type: :controller do
         get :edit, category_id: 0, id: 0
         expect(response.status).to eq(404)
       end
-
     end
 
     before { get :edit, category_id: category, id: theme }
@@ -69,7 +67,6 @@ RSpec.describe ThemesController, type: :controller do
   end
 
   describe 'POST #create' do
-
     before { post :create, category_id: category, theme: { title: 'Theme', content: 'Content' } }
 
     context 'current_user' do
@@ -89,7 +86,6 @@ RSpec.describe ThemesController, type: :controller do
         post :create, category_id: category, theme: { title: nil, content: 'Content' }
         expect(response).to render_template('new')
       end
-
     end
 
     # support/shared_examples.rb
@@ -97,9 +93,7 @@ RSpec.describe ThemesController, type: :controller do
   end
 
   describe 'POST #create_separate' do
-
-    before { post :create_separate, theme: { category_id: category, title: 'Theme', content:
-        'Content' } }
+    before { post :create_separate, theme: { category_id: category, title: 'Theme', content: 'Content' } }
 
     context 'current_user' do
       before { sign_in(user) }
@@ -125,7 +119,6 @@ RSpec.describe ThemesController, type: :controller do
   end
 
   describe 'PUT, PATCH #update' do
-
     before { put :update, category_id: category, id: theme, theme: { title: 'Theme2', content: 'Content' } }
 
     context 'current_user' do
@@ -148,7 +141,6 @@ RSpec.describe ThemesController, type: :controller do
 
     # support/shared_examples.rb
     it_should_behave_like 'not current_user'
-
   end
 
   describe 'DELETE #destroy' do

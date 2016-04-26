@@ -14,7 +14,6 @@ describe 'Updating comments', type: :feature do
   end
 
   context 'Update comment' do
-
     describe 'Comment has content', js: true do
       before(:each) do
         update_comment
@@ -33,7 +32,6 @@ describe 'Updating comments', type: :feature do
       it 'displays the flash[:success] message' do
         expect(page).to have_content('Your comment is successfully updated!')
       end
-
     end
 
     describe 'Comment has no content', js: true do
@@ -50,7 +48,6 @@ describe 'Updating comments', type: :feature do
         expect(page).to have_content(/Content/)
       end
     end
-
   end
 
   context 'Cancel update', js: true do
