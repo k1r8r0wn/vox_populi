@@ -3,44 +3,54 @@ namespace :db do
 
     if Kernel.const_defined?('Faker')
 
-      desc 'removes all existing records from db'
-      task clear: [:environment] do
-
-        Theme.delete_all
-        Category.delete_all
-        User.delete_all
-        Comment.delete_all
-        print "done!\n"
-
-      end
-
-      desc 'creates admin, problem categories & themes'
-      task create_admin: [:environment] do
+      desc "creates admin, problem categories, moderator, user & user's themes(problems)"
+      task create_all: [:environment] do
 
         print 'Creating admin'
         admin = User.create!(
           email: 'admin@mail.com',
           username: 'admin',
-          password: 'password'
+          password: 'password',
+          role: 2
         )
         print ".done!\n"
 
-        print "Creating admin's categories & themes"
-        5.times do
-          category = Category.create!(
+        print 'Creating problem categories'
+        3.times do
+          print '.'
+          Category.create!(
             name: Faker::Lorem.words(2).join(' '),
             user_id: admin.id
           )
+        end
+        print "done!\n"
 
-          2.times do
-            print '.'
-            Theme.create!(
+        print 'Creating moderator'
+        User.create!(
+            email: 'moderator@mail.com',
+            username: 'moderator',
+            password: 'password',
+            role: 1
+        )
+        print ".done!\n"
+
+        print 'Creating user'
+        user = User.create!(
+            email: 'user@mail.com',
+            username: 'user',
+            password: 'password'
+        )
+        print ".done!\n"
+
+        print "Creating user's themes(problems)"
+        5.times do
+          print '.'
+          Theme.create!(
               title: Faker::Lorem.words(2).join(' '),
-              content: Faker::Lorem.sentence,
-              category_id: category.id,
-              user_id: admin.id
-            )
-          end
+              content: Faker::Lorem.paragraph(2),
+              category_id: rand(1..3),
+              user_id: user.id
+          )
         end
         print "done!\n"
 
