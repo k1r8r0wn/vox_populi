@@ -3,23 +3,19 @@ class CategoriesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_category, only: [:edit, :update, :destroy]
 
-  # /categories GET
   def index
     @categories = Category.all
   end
 
-  # /categories/new GET
   def new
     @category = current_user.categories.new
     authorize @category
   end
 
-  # /categories/:id/edit GET
   def edit;
     authorize @category
   end
 
-  # /categories POST
   def create
     @category = current_user.categories.new(category_params)
     authorize @category
@@ -31,7 +27,6 @@ class CategoriesController < ApplicationController
     end
   end
 
-  # /categories/:id PUT, PATCH
   def update
     authorize @category
     if @category.update_attributes(category_params)
@@ -42,7 +37,6 @@ class CategoriesController < ApplicationController
     end
   end
 
-  # /categories/:id DELETE
   def destroy
     authorize @category
     if @category.destroy
