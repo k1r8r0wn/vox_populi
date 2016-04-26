@@ -11,14 +11,18 @@ class CategoriesController < ApplicationController
   # /categories/new GET
   def new
     @category = current_user.categories.new
+    authorize @category
   end
 
   # /categories/:id/edit GET
-  def edit; end
+  def edit;
+    authorize @category
+  end
 
   # /categories POST
   def create
     @category = current_user.categories.new(category_params)
+    authorize @category
     if @category.save
       redirect_to categories_path, success: "Category '#{@category.name}' is successfully created!"
     else
@@ -29,6 +33,7 @@ class CategoriesController < ApplicationController
 
   # /categories/:id PUT, PATCH
   def update
+    authorize @category
     if @category.update_attributes(category_params)
       redirect_to category_themes_path(@category), success: "Category '#{@category.name}' is successfully updated!"
     else
@@ -39,6 +44,7 @@ class CategoriesController < ApplicationController
 
   # /categories/:id DELETE
   def destroy
+    authorize @category
     if @category.destroy
       flash[:success] = 'This category is successfully deleted!'
     else
