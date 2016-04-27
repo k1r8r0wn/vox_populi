@@ -4,34 +4,31 @@ class ThemesController < ApplicationController
   before_action :set_category, except: [:new_separate, :create_separate]
   before_action :set_theme, only: [:show, :edit, :update, :destroy]
 
-  # /categories/:category_id/themes GET
   def index
     @themes = Theme.where(category_id: params[:category_id])
   end
 
-  # /themes/new GET
   def new
     @theme = @category.themes.new
+    authorize @theme
   end
 
-  # /themes/new GET
   def new_separate
     @theme = Theme.new
     @categories = Category.all
+    authorize @theme
   end
 
-  # /categories/:category_id/themes/:id GET
   def show
     @root_comments = @theme.comments.root_comments
   end
 
-  # /categories/:category_id/themes/:id/edit GET
   def edit; end
 
-  # /categories/:category_id/themes POST
   def create
     @theme = @category.themes.new(theme_params)
     @theme.user_id = current_user.id
+    authorize @theme
     if @theme.save
       redirect_to category_theme_path(@category, @theme), success: "Theme '#{@theme.title}' is successfully created!"
     else
@@ -40,9 +37,9 @@ class ThemesController < ApplicationController
     end
   end
 
-  # /themes/create POST
   def create_separate
     @theme = current_user.themes.new(theme_params)
+    authorize @theme
     if @theme.save
       redirect_to category_theme_path(@theme.category, @theme), success: "Theme '#{@theme.title}' is successfully created!"
     else
@@ -51,8 +48,8 @@ class ThemesController < ApplicationController
     end
   end
 
-  # /categories/:category_id/themes/:id PUT, PATCH
   def update
+    authorize @theme
     if @theme.update_attributes(theme_params)
       redirect_to category_theme_path(@category, @theme), success: "Theme '#{@theme.title}' is successfully updated!"
     else
@@ -61,8 +58,8 @@ class ThemesController < ApplicationController
     end
   end
 
-  # /categories/:category_id/themes/:id DELETE
   def destroy
+    authorize @theme
     if @theme.destroy
       flash[:success] = 'Theme was successfully deleted.'
     else

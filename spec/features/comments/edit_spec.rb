@@ -5,7 +5,7 @@ describe 'Editing comments', type: :feature do
   let(:user) { create(:user) }
   let!(:category) { create(:category) }
   let!(:theme) { create(:theme, category: category) }
-  let!(:comment) { create(:comment, theme: theme ) }
+  let!(:comment) { create(:comment, theme: theme, user: user) }
 
   before do
     sign_in(user)

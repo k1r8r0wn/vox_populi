@@ -8,11 +8,13 @@ class CommentsController < ApplicationController
 
   def new
     @comment = @theme.comments.new
+    authorize @comment
   end
 
   def create
     @comment = @theme.comments.new(comment_params)
     @comment.user_id = current_user.id
+    authorize @comment
 
     if @comment.save
       flash[:success] = 'Your comment is successfully added below!'
@@ -26,7 +28,8 @@ class CommentsController < ApplicationController
 
   # TODO: Needs refactoring
   def update
-    if @comment.editable?
+    authorize @comment
+    if @comment.editable? || current_user.role == 'admin' || current_user.role == 'moderator'
       if @comment.update_attributes(comment_params)
         flash[:success] = 'Your comment is successfully updated!'
       else
@@ -39,11 +42,13 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    authorize @comment
     if @comment.destroy
       flash.now[:success] = 'Your comment is successfully deleted!'
     else
       flash.now[:error] = 'Comment was not deleted. Try again.'
     end
+    # TODO: Fix this, without this it deletes whole theme
     respond_with(@comment) do |format|
       format.html { redirect_to :back }
     end

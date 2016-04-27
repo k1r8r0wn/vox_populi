@@ -1,11 +1,16 @@
 class ApplicationController < ActionController::Base
 
+  include Pundit
+
   protect_from_forgery with: :exception
 
+  rescue_from Pundit::NotAuthorizedError, with: :render_403
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from ActiveSupport::MessageVerifier::InvalidSignature, with: :render_500
 
   add_flash_types :success, :error
+
+  private
 
   def render_403
     render file: 'public/403.html', status: 403, layout: false

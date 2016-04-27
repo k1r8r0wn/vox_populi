@@ -15,7 +15,7 @@
 
       = link_to 'Create new one', new_category_theme_path(@category), class: 'btn btn-success', type: 'button'
 
-    - if current_user
+    - if current_user && current_user.admin?
       = link_to 'Edit category', edit_category_path(@category), class: 'btn btn-primary'
       = link_to 'Delete category', category_path(@category),
               method: :delete,

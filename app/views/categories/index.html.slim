@@ -13,5 +13,5 @@
         p
           = link_to categorie.name, category_themes_path(categorie)
 
-      - if current_user
+      - if current_user && current_user.admin?
         = link_to 'Add new category', new_category_path, class: 'btn btn-success'

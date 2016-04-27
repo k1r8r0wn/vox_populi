@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe CategoriesController, type: :controller do
 
-  let(:user) { create(:user) }
+  let(:user) { create(:admin) }
   let(:category) { create(:category) }
 
   describe 'GET #index' do
@@ -33,7 +33,6 @@ describe CategoriesController, type: :controller do
 
   describe 'POST #create' do
     context 'current_user' do
-
       before { sign_in(user) }
       before { post :create, category: { name: 'Test' } }
 
@@ -58,7 +57,6 @@ describe CategoriesController, type: :controller do
 
   describe 'PUT, PATCH #update' do
     context 'current_user' do
-
       before { sign_in(user) }
       before { put :update, id: category, category: { name: 'Test2' } }
 
@@ -74,7 +72,6 @@ describe CategoriesController, type: :controller do
         put :update, id: category, category: { name: nil }
         expect(response).to render_template('edit')
       end
-
     end
 
     before { get :update, id: category }
@@ -90,7 +87,6 @@ describe CategoriesController, type: :controller do
         delete :destroy, id: category
         expect(response).to redirect_to(categories_path)
       end
-
     end
 
     before { get :destroy, id: category }
