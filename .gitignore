@@ -20,6 +20,7 @@
 .DS_Store
 .rspec
 public/uploads
+.byebug_history
 
 coverage
 

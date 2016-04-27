@@ -34,22 +34,42 @@ namespace :db do
         )
         print ".done!\n"
 
-        print 'Creating user'
-        user = User.create!(
-            email: 'user@mail.com',
-            username: 'user',
+        print 'Creating user1'
+        user1 = User.create!(
+            email: 'user1@mail.com',
+            username: 'user1',
             password: 'password'
         )
         print ".done!\n"
 
-        print "Creating user's themes(problems)"
-        5.times do
+        print "Creating user's 1 themes(problems)"
+        3.times do
           print '.'
           Theme.create!(
               title: Faker::Lorem.words(2).join(' '),
               content: Faker::Lorem.paragraph(2),
               category_id: rand(1..3),
-              user_id: user.id
+              user_id: user1.id
+          )
+        end
+        print "done!\n"
+
+        print 'Creating user2'
+        user2 = User.create!(
+            email: 'user2@mail.com',
+            username: 'user2',
+            password: 'password'
+        )
+        print ".done!\n"
+
+        print "Creating user's 2 themes(problems)"
+        3.times do
+          print '.'
+          Theme.create!(
+              title: Faker::Lorem.words(2).join(' '),
+              content: Faker::Lorem.paragraph(2),
+              category_id: rand(1..3),
+              user_id: user2.id
           )
         end
         print "done!\n"
