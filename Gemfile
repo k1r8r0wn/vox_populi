@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 gem 'rails', '4.2.6'
 
+gem 'rails_admin', '~> 0.8.1'
+
 gem 'rake', '~> 11.1', '>= 11.1.2'
 
 gem 'pg', '~> 0.18.4'

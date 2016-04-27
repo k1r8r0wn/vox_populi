@@ -14,20 +14,9 @@ nav.navbar.navbar-default
             = link_to 'Edit profile', edit_user_registration_path
           li
             = link_to 'Sign out', destroy_user_session_path, method: :delete
-          li.dropdown
-            a.dropdown-toggle aria-expanded='false' aria-haspopup='true' data-toggle='dropdown' href="#" role='button'
-              | Dropdown
-              span.caret
-            ul.dropdown-menu
-              li
-                a href="#"  Action
-              li
-                a href="#"  Another action
-              li
-                a href="#"  Something else here
-              li.divider role="separator"
-              li
-                a href="#"  Separated link
+          - if current_user.admin?
+            li
+              = link_to 'Administration', rails_admin_path, class: 'red'
         - else
           li
             = link_to 'Sign in', new_user_session_path
