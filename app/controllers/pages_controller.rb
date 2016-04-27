@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+  before_action :authenticate_user!, only: [:statistics]
+
   layout 'home', only: [:home]
 
   def home; end
