@@ -29,6 +29,9 @@ gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'pundit', '~> 1.1'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
+gem 'chartkick', '~> 1.4', '>= 1.4.2'
+gem 'groupdate', '~> 2.5', '>= 2.5.2'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'

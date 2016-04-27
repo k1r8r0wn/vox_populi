@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
+  get '/statistics' => 'pages#statistics', as: :statistics
+
   get '*path' => redirect('/')
 
 end
