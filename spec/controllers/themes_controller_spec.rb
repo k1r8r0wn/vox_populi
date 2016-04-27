@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ThemesController, type: :controller do
 
-  let(:user) { create(:user) }
+  let(:user) { create(:admin) }
   let(:category) { create(:category) }
   let(:theme) { create(:theme, category: category) }
 
