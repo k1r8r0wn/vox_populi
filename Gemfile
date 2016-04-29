@@ -20,6 +20,7 @@ gem 'coffee-rails', '~> 4.1', '>= 4.1.1'
 gem 'jquery-rails'
 
 gem 'turbolinks'
+gem 'jquery-turbolinks', '~> 2.1'
 
 gem 'jbuilder', '~> 2.4', '>= 2.4.1'
 
