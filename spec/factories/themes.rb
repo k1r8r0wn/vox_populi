@@ -4,5 +4,6 @@ FactoryGirl.define do
     sequence(:content) { |i| "Content#{i}" }
     association :user
     association :category
+    association :city
   end
 end

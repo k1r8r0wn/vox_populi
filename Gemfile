@@ -53,3 +53,5 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
   gem 'simplecov', '~> 0.11.2', require: false
 end
+
+gem 'sypex_geo'
