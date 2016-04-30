@@ -1,5 +1,5 @@
 class City < ActiveRecord::Base
-  scope :find_default_city, -> { find_or_create_by(title: I18n.t('cities.default.title')) }
+  scope :find_default_city, -> { find_or_create_by(title: 'Moscow') }
 
   has_many :themes, dependent: :destroy
 
@@ -11,7 +11,7 @@ class City < ActiveRecord::Base
     db = SypexGeo::Database.new('./db/geolocation/SxGeoCity.dat')
     location = db.query(ip)
 
-    city = find_by_title(location.city[:name_ru]) if location && location.city.present?
+    city = find_by_title(location.city[:name_en]) if location && location.city.present?
     return city if city
 
     City.find_default_city

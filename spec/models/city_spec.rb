@@ -13,14 +13,14 @@ describe City, type: :model do
   describe '.find_by_ip' do
     subject { City.find_by_ip(ip) }
 
-    let!(:default_city) { create(:city, title: 'Москва') }
-    let!(:city) { create(:city, title: 'СПБ') }
+    let!(:default_city) { create(:city, title: 'Moscow') }
+    let!(:city) { create(:city, title: 'Omsk') }
     let(:sypex_geo) { instance_double(SypexGeo::Database) }
     let(:location) { instance_double(SypexGeo::Result) }
 
     context 'when ip present' do
       let(:ip) { '37.204.57.162' }
-      let(:location_city) { { id: 123, name_ru: 'СПБ' }  }
+      let(:location_city) { { id: 123, name_en: 'Omsk' }  }
 
       before do
         expect(SypexGeo::Database).to receive(:new).and_return(sypex_geo)

@@ -35,8 +35,6 @@ gem 'groupdate', '~> 2.5', '>= 2.5.2'
 
 gem 'sypex_geo', '~> 0.2.4'
 
-gem 'rails_12factor', '~> 0.0.3'
-
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
@@ -58,3 +56,5 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
   gem 'simplecov', '~> 0.11.2', require: false
 end
+
+gem 'rails_12factor', '~> 0.0.3', group: :production

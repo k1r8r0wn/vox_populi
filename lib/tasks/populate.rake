@@ -49,7 +49,8 @@ namespace :db do
               title: Faker::Lorem.words(2).join(' '),
               content: Faker::Lorem.paragraph(2),
               category_id: rand(1..3),
-              user_id: user1.id
+              user_id: user1.id,
+              city_id: 1
           )
         end
         print "done!\n"
@@ -69,7 +70,8 @@ namespace :db do
               title: Faker::Lorem.words(2).join(' '),
               content: Faker::Lorem.paragraph(2),
               category_id: rand(1..3),
-              user_id: user2.id
+              user_id: user2.id,
+              city_id: 2
           )
         end
         print "done!\n"
