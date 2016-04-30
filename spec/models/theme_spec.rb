@@ -6,16 +6,16 @@ describe Theme, type: :model do
 
   context 'relationships' do
     it { expect(theme).to belong_to(:category) }
-
     it { expect(theme).to belong_to(:user) }
+    it { expect(theme).to belong_to(:city) }
 
     it { expect(theme).to have_many(:comments).dependent(:destroy) }
   end
 
   context 'validations' do
     it { expect(theme).to validate_presence_of(:title) }
-
     it { expect(theme).to validate_presence_of(:content) }
+    it { expect(theme).to validate_presence_of(:city_id) }
 
     it { expect(theme).to validate_uniqueness_of(:title).case_insensitive }
 

@@ -2,8 +2,9 @@
   .col-sm-6.col-sm-offset-3
     h2.title Create new theme(problem)
 
-    = simple_form_for @theme, url: create_separate_path, method: :post do |t|
-      = t.association :category, label: "Choose problem's category", include_blank: false, autofocus: true
+    = simple_form_for build_theme, url: create_separate_path, method: :post do |t|
+      = t.association :city, label: 'Choose current city', include_blank: false, autofocus: true
+      = t.association :category, label: "Choose problem's category", include_blank: false
       = t.input :title
       = t.input :content, as: :text, input_html: { rows: 5 }
       = t.submit 'Create', class: 'btn btn-success'

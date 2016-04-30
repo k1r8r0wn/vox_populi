@@ -5,6 +5,7 @@ RSpec.describe ThemesController, type: :controller do
   let(:user) { create(:admin) }
   let(:category) { create(:category) }
   let(:theme) { create(:theme, category: category) }
+  let!(:city) { create(:city) }
 
   describe 'GET #index' do
     it "renders 'index' page if themes are found" do
@@ -67,11 +68,23 @@ RSpec.describe ThemesController, type: :controller do
   end
 
   describe 'POST #create' do
-    before { post :create, category_id: category, theme: { title: 'Theme', content: 'Content' } }
+    before do
+      post(
+        :create,
+        category_id: category,
+        theme: { title: 'Theme', content: 'Content', city_id: city.id }
+      )
+    end
 
     context 'current_user' do
       before { sign_in(user) }
-      before { post :create, category_id: category, theme: { title: 'Theme', content: 'Content' } }
+      before do
+        post(
+          :create,
+          category_id: category,
+          theme: { title: 'Theme', content: 'Content', city_id: city.id }
+        )
+      end
 
       it 'redirects to created theme if validations pass' do
         theme = category.themes.first
@@ -93,11 +106,21 @@ RSpec.describe ThemesController, type: :controller do
   end
 
   describe 'POST #create_separate' do
-    before { post :create_separate, theme: { category_id: category, title: 'Theme', content: 'Content' } }
+    before(:each) do
+      post(
+        :create_separate,
+        theme: { category_id: category, title: 'Theme', content: 'Content', city_id: city.id }
+      )
+    end
 
     context 'current_user' do
       before { sign_in(user) }
-      before { post :create_separate, theme: { category_id: category, title: 'Theme', content: 'Content' } }
+      before do
+        post(
+          :create_separate,
+          theme: { category_id: category, title: 'Theme', content: 'Content', city_id: city.id }
+        )
+      end
 
       it 'redirects to created theme if validations pass' do
         theme = category.themes.first
