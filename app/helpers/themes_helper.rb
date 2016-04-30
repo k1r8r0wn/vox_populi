@@ -4,7 +4,7 @@ module ThemesHelper
   end
 
   def build_theme
-    @theme.city_id = current_city.id if @theme.city_id.blank? && current_city
+    @theme.city_id = current_city.try(:id) if @theme.city_id.blank? && current_city
 
     @theme
   end

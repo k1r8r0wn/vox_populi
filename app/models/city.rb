@@ -1,6 +1,5 @@
 class City < ActiveRecord::Base
   scope :find_default_city, -> { find_or_create_by(title: I18n.t('cities.default.title')) }
-  scope :find_by_title, -> (title) { find_by(title: title) }
 
   has_many :themes, dependent: :destroy
 
