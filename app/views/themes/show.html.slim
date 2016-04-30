@@ -3,6 +3,9 @@
     h2.title
       = @theme.title
     p
+      i.glyphicon.glyphicon-map-marker
+      = @theme.city.try(:title)
+    p
       = @theme.content
 
     // TODO: Needs refactoring

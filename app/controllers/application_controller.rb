@@ -10,6 +10,12 @@ class ApplicationController < ActionController::Base
 
   add_flash_types :success, :error
 
+  helper_method :current_city
+
+  def current_city
+    @city ||= get_current_city
+  end
+
   private
 
   def render_403
@@ -24,4 +30,12 @@ class ApplicationController < ActionController::Base
     render file: 'public/500.html', status: 500, layout: false
   end
 
+  def get_current_city
+    return City.find_by(id: session[:city_id]) if session[:city_id].present?
+
+    city = City.find_by_ip(request.remote_ip)
+    session[:city_id] = city.try(:id) if city
+
+    city
+  end
 end
