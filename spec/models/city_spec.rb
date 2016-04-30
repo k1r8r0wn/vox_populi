@@ -1,9 +1,14 @@
 require 'rails_helper'
 
 describe City, type: :model do
-  it { should have_many(:themes).dependent(:destroy) }
 
-  it { should validate_presence_of :title }
+  context 'relationships' do
+    it { should have_many(:themes).dependent(:destroy) }
+  end
+
+  context 'validations' do
+    it { should validate_presence_of :title }
+  end
 
   describe '.find_by_ip' do
     subject { City.find_by_ip(ip) }

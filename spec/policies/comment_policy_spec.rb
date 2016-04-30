@@ -20,7 +20,7 @@ describe CommentPolicy do
       expect(subject).to permit(create(:moderator))
     end
 
-    it 'grant access if user is author of the comment' do
+    it 'grants access if user is author of the comment' do
       expect(subject).to permit(user, create(:comment, user: user))
     end
 

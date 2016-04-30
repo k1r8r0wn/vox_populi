@@ -20,7 +20,7 @@ describe ThemePolicy do
       expect(subject).to permit(create(:moderator))
     end
 
-    it 'grant access if user is author of the theme' do
+    it 'grants access if user is author of the theme' do
       expect(subject).to permit(user, create(:theme, user: user))
     end
 

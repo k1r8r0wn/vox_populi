@@ -59,13 +59,12 @@ describe 'Updating comments', type: :feature do
     end
 
     it "redirects to primary comment when 'cancel' button is clicked" do
-      expect(page).to have_content(/Content/)
+      expect(page).not_to have_selector('.comment-form')
+      expect(page).to have_selector('.comment-body')
     end
   end
 
   context "Can't edit comment if 5 minutes are left", js: true do
-    # let!(:user) { create(:user) }
-
     before do
       update_comment
       comment.update(created_at: 5.minutes.ago)
