@@ -26,10 +26,9 @@ class CommentsController < ApplicationController
 
   def edit; end
 
-  # TODO: Needs refactoring
   def update
     authorize @comment
-    if @comment.editable? || current_user.role == 'admin' || current_user.role == 'moderator'
+    if @comment.editable?
       if @comment.update_attributes(comment_params)
         flash[:success] = 'Your comment is successfully updated!'
       else
@@ -47,10 +46,6 @@ class CommentsController < ApplicationController
       flash.now[:success] = 'Your comment is successfully deleted!'
     else
       flash.now[:error] = 'Comment was not deleted. Try again.'
-    end
-    # TODO: Fix this, without this it deletes whole theme
-    respond_with(@comment) do |format|
-      format.html { redirect_to :back }
     end
   end
 

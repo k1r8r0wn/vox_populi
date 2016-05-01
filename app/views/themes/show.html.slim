@@ -8,16 +8,13 @@
     p
       = @theme.content
 
-    // TODO: Needs refactoring
-    - if current_user
-      - if current_user.admin? || current_user.moderator?
-        = link_to 'Delete theme', category_theme_path(@category, @theme),
-                method: :delete,
-                data: { confirm: "Are you sure you want to delete this theme & all it's comments?" },
-                class: 'btn btn-danger'
+    - if current_user && (current_user.admin? || current_user.moderator?)
+      = link_to 'Delete theme', category_theme_path(@category, @theme),
+              method: :delete,
+              data: { confirm: "Are you sure you want to delete this theme & all it's comments?" },
+              class: 'btn btn-danger'
 
       - if is_theme_owner?
-
         = link_to 'Edit theme', edit_category_theme_path(@category, @theme), class: 'btn btn-primary'
 
     = link_to 'Go back', category_themes_path(@category), class: 'btn btn-default'

@@ -1,8 +1,8 @@
-h2 Registered users
+h2.text-center Registered users
 
 = line_chart User.group_by_day(:created_at).count
 
-h2 Number of themes (problems) in categories
+h2.text-center Number of themes (problems) in categories
 
 = pie_chart @themes
 
