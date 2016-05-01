@@ -9,10 +9,10 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/email/rspec'
 require 'simplecov'
-SimpleCov.start
 require 'devise'
 require 'pundit/rspec'
 
+SimpleCov.start
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end

@@ -12,6 +12,10 @@ describe ThemePolicy do
       expect(subject).to permit(create(:admin))
       expect(subject).to permit(create(:moderator))
     end
+
+    it 'denies access if user is not signed in' do
+      expect(subject).not_to permit(nil)
+    end
   end
 
   permissions :edit?, :update? do
