@@ -1,3 +1,3 @@
-= t.association :city, label: "Choose current city", include_blank: false
-= t.input :title, autofocus: true
+= t.association :city, label: 'Choose city', include_blank: false, autofocus: true, input_html: { 'data-original-title' => "It's your current city, right? If no, or you just want another one - please choose it from the list.", 'data-toggle' =>'tooltip', 'data-placement' => 'top', class: 'blue-tooltip' }
+= t.input :title
 = t.input :content, as: :text, input_html: { rows: 5 }
