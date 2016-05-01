@@ -1,59 +1,26 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
  *= require_self
  */
 
 @import "bootstrap-sprockets";
 @import 'bootstrap';
 
-html, body {
-  height: 100%;
-}
+@import 'modules/variables';
 
-#notifications-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-}
+//@import 'modules/mixins';
+@import 'modules/helpers';
+//@import 'partials/icons';
 
-.close {
-  font-size: 15px;
-  line-height: 1.5;
-}
+@import 'partials/main';
+@import 'partials/notifications';
+@import 'partials/tooltips';
 
-.title {
-  margin-bottom: 2em;
-}
+//@import 'partials/header';
+//@import 'partials/footer';
+//@import 'partials/forms';
 
-.btn {
-  margin: .5em 1em;
-}
-
-.red {
-  color: #ff4123 !important;
-}
-
-.green {
-  color: #5cb85c !important;
-}
-
-.tooltip {
-  opacity: 1 !important;
-  filter: alpha(opacity=100);
-}
-
-.blue-tooltip + .tooltip > .tooltip-inner { background-color: #5cb85c; }
-.blue-tooltip + .tooltip > .tooltip-arrow { border-top-color: #5cb85c; }
+@import 'partials/pages';
+@import 'partials/categories';
+@import 'partials/themes';
+@import 'partials/comments';
+@import 'partials/subcomments';

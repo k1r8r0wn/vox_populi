@@ -1,0 +1,27 @@
+/* Helper classes */
+
+.close {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.title { margin-bottom: 2em; }
+
+.btn { margin: .5em 1em; }
+
+.red { color: $red !important; }
+
+.green { color: $green !important; }
+
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
