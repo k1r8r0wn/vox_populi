@@ -1,23 +1,27 @@
-.row
-  .col-md-12.text-center
-    h2.title
-      = @theme.title
-    p
-      i.glyphicon.glyphicon-map-marker
-      = @theme.city.try(:title)
-    p
+.row.problem-wrapper
+  .col-md-12
+    .header.title.text-center
+      h2
+        = @theme.title
+      a.location href='https://www.google.ru/maps/place/#{@theme.city.title}'
+        i.glyphicon.glyphicon-map-marker
+        = @theme.city.title
+      .author
+        ' by
+        = @theme.user.username
+    .content
       = @theme.content
+    .text-center
+      - if current_user && (current_user.admin? || current_user.moderator?)
+        = link_to 'Delete theme', category_theme_path(@category, @theme),
+                method: :delete,
+                data: { confirm: "Are you sure you want to delete this theme & all it's comments?" },
+                class: 'btn btn-danger'
 
-    - if current_user && (current_user.admin? || current_user.moderator?)
-      = link_to 'Delete theme', category_theme_path(@category, @theme),
-              method: :delete,
-              data: { confirm: "Are you sure you want to delete this theme & all it's comments?" },
-              class: 'btn btn-danger'
+        - if is_theme_owner?
+          = link_to 'Edit theme', edit_category_theme_path(@category, @theme), class: 'btn btn-primary'
 
-      - if is_theme_owner?
-        = link_to 'Edit theme', edit_category_theme_path(@category, @theme), class: 'btn btn-primary'
-
-    = link_to 'Go back', category_themes_path(@category), class: 'btn btn-default'
+      = link_to 'Go back', category_themes_path(@category), class: 'btn btn-default'
 
 .row.comments-wrapper
   - unless @theme.comments.empty?

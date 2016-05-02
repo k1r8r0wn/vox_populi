@@ -11,21 +11,21 @@ nav.navbar.navbar-default
       ul.nav.navbar-nav.navbar-right
         - if current_user
           li
-            = link_to 'Statistics', statistics_path
+            = link_to (content_tag(:i, '', class: 'glyphicon glyphicon glyphicon-globe') + 'Problem categories').html_safe, categories_path
+          li
+            = link_to (content_tag(:i, '', class: 'glyphicon glyphicon-stats') + 'Statistics').html_safe, statistics_path
           li.dropdown
             a.dropdown-toggle aria-expanded='false' aria-haspopup='true' data-toggle='dropdown' href="#" role='button'
-              span class='glyphicon glyphicon-menu-hamburger'
+              span class='glyphicon glyphicon-user'
             ul.dropdown-menu
               li
-                = link_to 'Edit profile', edit_user_registration_path
+                = link_to (content_tag(:i, '', class: 'glyphicon glyphicon-tasks') + 'Edit profile').html_safe, edit_user_registration_path
               - if current_user.admin?
                 li
-                  = link_to 'Administration', rails_admin_path, class: 'red'
-              li.divider role="separator"
+                  = link_to (content_tag(:i, '', class: 'glyphicon glyphicon-dashboard') + 'Administration').html_safe, rails_admin_path
+              li.divider role='separator'
               li
-                = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'red'
+                = link_to (content_tag(:i, '', class: 'glyphicon glyphicon-log-out') + 'Sign out').html_safe, destroy_user_session_path, method: :delete, class: 'red'
         - else
           li
-            = link_to 'Sign in', new_user_session_path
-          li
-            = link_to 'Sign up', new_user_registration_path
+            = link_to (content_tag(:i, '', class: 'glyphicon glyphicon-log-in') + 'Sign in').html_safe, new_user_session_path

@@ -1,17 +1,34 @@
-.row
-  .col-md-12.text-center
-
-    - if @categories.empty?
-
+- if @categories.empty?
+  .row
+    .col-md-12.text-center
       h2.title There is no problem categories yet
-
-    - else
-
+- else
+  .row
+    .col-md-12.text-center
       h2.title List of all problem categories
+  .row
+    - @categories.each do |categorie|
+      .col-lg-3.col-md-4.col-xs-6.thumbnail-wrapper
+        .thumbnail
+          = link_to category_themes_path(categorie) do
+            = image_tag('default-category.svg', alt: "Default problem's category image")
+            .caption.text-center
+              h4
+                = categorie.name
+              small.text-muted
+                - if categorie.themes.count > 0
+                  | #{categorie.themes.count} problem(-s)
+                - else
+                  | There is no problems here yet
+          - if current_user && current_user.admin?
+            .links
+              = link_to '', edit_category_path(categorie), class: 'glyphicon glyphicon-pencil'
+              = link_to '', category_path(categorie),
+                method: :delete,
+                data: { confirm: 'Are you sure you want to delete this category and all its themes?' },
+                class: 'glyphicon glyphicon-trash red '
 
-      - @categories.each do |categorie|
-        p
-          = link_to categorie.name, category_themes_path(categorie)
-
-      - if current_user && current_user.admin?
-        = link_to 'Add new category', new_category_path, class: 'btn btn-success'
+- if current_user && current_user.admin?
+  .row
+    .col-md-12.text-center
+      = link_to 'Add new category', new_category_path, class: 'btn btn-success'

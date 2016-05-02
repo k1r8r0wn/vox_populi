@@ -3,7 +3,7 @@
     h2.title List of all #{@category.name} problems:
 
     - if @themes.empty?
-      p.title There is no themes yet.
+      p.title There is no problems here yet.
       = link_to 'Create the first one', new_category_theme_path(@category), class: 'btn btn-success', type: 'button'
 
     - else
@@ -15,10 +15,4 @@
 
       = link_to 'Create new one', new_category_theme_path(@category), class: 'btn btn-success', type: 'button'
 
-    - if current_user && current_user.admin?
-      = link_to 'Edit category', edit_category_path(@category), class: 'btn btn-primary'
-      = link_to 'Delete category', category_path(@category),
-              method: :delete,
-              data: { confirm: 'Are you sure you want to delete this category and all its themes?' },
-              class: 'btn btn-danger'
     = link_to 'Go back', categories_path,  class: 'btn btn-default'
