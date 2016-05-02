@@ -1,12 +1,13 @@
-.row
-  .col-md-6
-    h2.text-center Registered users
-    = line_chart User.group_by_day(:created_at).count
+.main-container
+  .row
+    .col-md-6
+      h2.text-center Registered users
+      = line_chart User.group_by_day(:created_at).count
 
-  .col-md-6
-    h2.text-center Problems in categories
-    = pie_chart @themes
+    .col-md-6
+      h2.text-center Problems in categories
+      = pie_chart @themes
 
-.row.text-center
-  .col-md-12
-    = link_to 'Go back', :back, class: 'btn btn-default'
+  .row.text-center
+    .col-md-12
+      = link_to 'Go back', :back, class: 'btn btn-default'
