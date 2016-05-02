@@ -24,7 +24,12 @@
                     'data-placement' => 'top'
           .form-group
             = f.label :password
-            = f.password_field :password, class: 'form-control'
+            = f.password_field :password,
+                    class: 'form-control',
+                    'data-original-title' => 'Minimum password length is 8 characters',
+                    'data-toggle' => 'tooltip',
+                    'data-placement' => 'top'
+
           .form-group
             = f.label :password_confirmation
             = f.password_field :password_confirmation, class: 'form-control'
