@@ -1,8 +1,9 @@
-.row.text-center
+.row
   .col-sm-6.col-sm-offset-3
-    h2.title Edit theme(problem)
+    h2.title.text-center Edit problem
 
     = simple_form_for [@category, build_theme] do |t|
       = render partial: 'form', locals: {t: t}
-      = t.submit 'Update', class: 'btn btn-success'
-      = link_to 'Go back', category_theme_path(@category, @theme), class: 'btn btn-default'
+      .text-center
+        = t.submit 'Update', class: 'btn btn-success'
+        = link_to 'Go back', category_theme_path(@category, @theme), class: 'btn btn-default'

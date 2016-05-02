@@ -9,9 +9,9 @@ html lang="en,ru"
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
-  body.home_page
+  body.pages
 
-    .container
+    .container.main-container
       div id = 'notifications-wrapper'
         = flash_messages
       == yield

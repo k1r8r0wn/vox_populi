@@ -1,14 +1,10 @@
-/* Home page */
+/* -- Home page -- */
 
-.home_page {
-  background: #f2cea8 image-url('home.jpg') no-repeat center;
+.pages {
+  background: $home-page image-url('home.jpg') no-repeat center;
   height: 100vh;
   text-align: center;
   background-size: cover;
-
-  .btn {
-    min-width: 200px;
-  }
 
   blockquote {
     border: 0;
@@ -21,8 +17,8 @@ blockquote h1 {
   }
 }
 
-.home_page .centered {
-  @media (max-width: 670px) and (orientation: landscape)  {
+.pages .centered {
+  @media (max-width: 670px) and (orientation: landscape) {
     position: relative;
     top: 0;
     left: 0;

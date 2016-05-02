@@ -1,0 +1,67 @@
+/* -- Main -- */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  min-width: 300px;
+  font-family: $open-sans;
+  font-size: 15px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container.main-container {
+  @media screen and (min-width: 450px) {
+    margin-top: 5em;
+  }
+}
+
+/* Typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+/* Buttons */
+
+.btn {
+  min-width: 150px;
+  margin: .5em 1em;
+  font-size: 13px;
+}
+
+/* Other staff */
+
+a {
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  i {
+    margin-right: .5em;
+  }
+}
+
+a,
+button,
+input {
+  outline: 0;
+
+  &:hover {
+    outline: 0;
+  }
+}
+
+button.close {
+  line-height: 1;
+}

@@ -1,0 +1,9 @@
+/* Forms */
+
+.field_with_errors {
+  color: #a94442;
+
+  & input {
+    border-color: #a94442;
+  }
+}

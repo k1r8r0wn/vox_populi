@@ -1,0 +1,38 @@
+/* -- Categories -- */
+
+.thumbnail-wrapper {
+  @media screen and (max-width: 450px) {
+    width: 100%;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.thumbnail {
+  position: relative;
+
+  &:hover {
+    border: 1px solid $light-blue;
+
+    .links {
+      display: block;
+    }
+  }
+
+  &img {
+    width: 100%;
+  }
+
+  .links {
+    margin-top: 1em;
+    position: absolute;
+    top: -2px;
+    right: 10px;
+    background-color: $white;
+    padding: 5px 5px 2px;
+    border-radius: 4px;
+    display: none;
+  }
+}
