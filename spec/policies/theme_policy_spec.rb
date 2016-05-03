@@ -6,7 +6,8 @@ describe ThemePolicy do
 
   subject { described_class }
 
-  permissions :new?, :new_separate?, :create?, :create_separate? do
+  permissions :new?, :new_separate?, :create?,
+  :create_separate?, :vote_for?, :vote_against?, :revote? do
     it 'grants access for every user'  do
       expect(subject).to permit(create(:user))
       expect(subject).to permit(create(:admin))

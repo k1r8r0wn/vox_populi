@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
 
+  acts_as_voter
+
   def apply_omniauth(omniauth)
     self.username = omniauth['info']['name'] || omniauth['info']['first_name'] || omniauth['info']['nickname'] if username.blank?
     self.email =    omniauth['info']['email'] if email.blank?
