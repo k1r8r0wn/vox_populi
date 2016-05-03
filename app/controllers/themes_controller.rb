@@ -6,6 +6,7 @@ class ThemesController < ApplicationController
 
   def index
     @themes = Theme.where(category_id: params[:category_id])
+    @themes = @themes.page(params[:page]).per(10)
   end
 
   def new

@@ -13,6 +13,10 @@
         h2
           = link_to theme.title, category_theme_path(@category, theme)
 
+      .row
+        .col-md-12.text-center
+          = paginate @themes
+
       = link_to 'Create new one', new_category_theme_path(@category), class: 'btn btn-success', type: 'button'
 
     = link_to 'Go back', categories_path,  class: 'btn btn-default'
