@@ -32,6 +32,8 @@ gem 'omniauth-facebook', '~> 3.0'
 gem 'pundit', '~> 1.1'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
+gem 'thumbs_up', '~> 0.6.9'
+
 gem 'chartkick', '~> 1.4', '>= 1.4.2'
 gem 'groupdate', '~> 2.5', '>= 2.5.2'
 

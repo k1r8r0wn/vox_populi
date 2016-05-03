@@ -7,3 +7,17 @@
     margin-bottom: 2em;
   }
 }
+
+/* Votes */
+
+.thumbs-up,
+.thumbs-down {
+  font-size: 1.5em;
+  margin: .7em .7em 0;
+  display: inline-block;
+}
+
+.revote {
+  display: block;
+  margin-top: 1em;
+}

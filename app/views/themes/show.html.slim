@@ -23,6 +23,23 @@
 
       = link_to 'Go back', category_themes_path(@category), class: 'btn btn-default'
 
+    - if current_user
+      .row.votes
+        .col-md-12.text-center
+          - if @theme.voted_by?(current_user)
+            h3 Total votes:
+            .glyphicon.glyphicon-thumbs-up.thumbs-up
+              div
+                = @theme.votes_for
+            .glyphicon.glyphicon-thumbs-down.thumbs-down
+              div
+                = @theme.votes_against
+            = link_to 'Want to revote?', revote_category_theme_path(@category, @theme), method: :delete, class: 'revote red'
+          - else
+            h3 How is this problem for you?
+            = link_to '', vote_for_category_theme_path(@category, @theme), method: :post, class: 'glyphicon glyphicon-thumbs-up thumbs-up'
+            = link_to '', vote_against_category_theme_path(@category, @theme), method: :post, class: 'glyphicon glyphicon-thumbs-down thumbs-down'
+
 .row.comments-wrapper
   - unless @theme.comments.empty?
     h3.text-center Comments

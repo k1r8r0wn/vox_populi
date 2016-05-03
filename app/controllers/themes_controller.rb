@@ -68,6 +68,22 @@ class ThemesController < ApplicationController
     redirect_to category_themes_path
   end
 
+  def vote_for
+    current_user.vote_for(set_theme)
+    voted?
+  end
+
+  def vote_against
+    current_user.vote_against(set_theme)
+    voted?
+  end
+
+  def revote
+    current_user.unvote_for(set_theme)
+    authorize @theme
+    redirect_to :back, success: 'You successfully delete your vote!'
+  end
+
   private
 
   def set_theme
@@ -80,6 +96,15 @@ class ThemesController < ApplicationController
 
   def theme_params
     params.require(:theme).permit(:title, :content, :category_id, :city_id)
+  end
+
+  def voted?
+    authorize @theme
+    if @theme.voted_by?(current_user)
+      redirect_to :back, success: 'You vote is accepted!'
+    else
+      redirect_to :back, error: 'Oops, something goes wrong!'
+    end
   end
 
 end
