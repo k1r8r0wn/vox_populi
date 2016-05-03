@@ -16,6 +16,19 @@
           transform: translate(-50%, -50%);
 }
 
+.background-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: '';
+  display: inline-block;
+  height: 1.5em;
+  line-height: 0;
+  margin: -0.55em 0.25em -0.45em 0;
+  position: relative;
+  width: 1.5em;
+}
+
 /* Colors */
 
 .red {

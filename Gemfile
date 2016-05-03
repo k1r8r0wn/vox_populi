@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.4', '>= 2.4.1'
 gem 'sdoc', '~> 0.4.1', group: :doc
 
 gem 'devise', '~> 3.5', '>= 3.5.6'
+gem 'omniauth-facebook', '~> 3.0'
 gem 'pundit', '~> 1.1'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 

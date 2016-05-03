@@ -1,5 +1,10 @@
 .row
   .col-md-12.text-center
+    - if controller_name == 'sessions' || controller_name == 'registrations' && devise_mapping.omniauthable?
+      .omniauth-providers
+        p You can also sign in with:
+        - resource_class.omniauth_providers.each do |provider|
+          = link_to '', omniauth_authorize_path(resource_name, provider), class: "#{provider}"
     - if controller_name != 'sessions'
       = link_to t('.sign_in', default: 'Sign in'), new_session_path(resource_name)
       br
@@ -14,8 +19,4 @@
       br
     - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
       = link_to t(".didn_t_receive_unlock_instructions", default: "Didn't receive unlock instructions?"), new_unlock_path(resource_name)
-      br
-    - if devise_mapping.omniauthable?
-      - resource_class.omniauth_providers.each do |provider|
-        = link_to t('.sign_in_with_provider', provider: provider.to_s.titleize, default: "Sign in with #{provider.to_s.titleize}"), omniauth_authorize_path(resource_name, provider)
       br
