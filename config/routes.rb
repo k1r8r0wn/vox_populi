@@ -6,6 +6,11 @@ Rails.application.routes.draw do
 
   resources :categories, except: [:show] do
     resources :themes do
+      member do
+        post 'vote_for'
+        post 'vote_against'
+        delete 'revote'
+      end
       resources :comments, except: [:index, :show] do
         resources :subcomments, except: [:index, :show]
       end
