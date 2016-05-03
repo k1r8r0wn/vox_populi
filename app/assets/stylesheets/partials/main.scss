@@ -20,6 +20,14 @@ body {
   }
 }
 
+::selection {
+  background: $main; /* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+  background: $main; /* Gecko Browsers */
+}
+
 /* Typography */
 
 h1,
@@ -42,7 +50,11 @@ h6 {
 /* Other staff */
 
 a {
-  text-decoration: none;
+  &:hover,
+  &:focus,
+  &:visited {
+    text-decoration: none;
+  }
 
   i {
     margin-right: .5em;

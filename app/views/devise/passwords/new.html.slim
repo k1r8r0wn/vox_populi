@@ -10,9 +10,16 @@
         = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, role: 'form' }) do |f|
           .form-group
             = f.label :email
-            = f.email_field :email, autofocus: true, class: 'form-control'
+            = f.email_field :email,
+              autofocus: true,
+              class: 'form-control',
+              'data-original-title' => 'We will send you reset password instructions on this email address',
+              'data-toggle' => 'tooltip',
+              'data-placement' => 'top'
           .text-center
-            = f.submit t('.send_me_reset_password_instructions', default: 'Send me reset password instructions'),
+            = f.submit t('.send', default: 'Send'),
             class: 'btn btn-primary'
 
-  = render 'devise/shared/links'
+.row
+  .col-md-offset-3.col-md-6.col-sm-12
+    = render 'devise/shared/links'

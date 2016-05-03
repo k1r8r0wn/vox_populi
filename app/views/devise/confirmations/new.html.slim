@@ -11,5 +11,8 @@
             = f.label :email
             = f.email_field :email, autofocus: true, class: 'form-control'
           .text-center
-            = f.submit t('.resend_confirmation_instructions', default: 'Resend confirmation instructions'), class: 'btn btn-primary'
-  = render 'devise/shared/links'
+            = f.submit t('.resend', default: 'Resend'), class: 'btn btn-primary'
+
+.row
+  .col-md-offset-3.col-md-6.col-sm-12
+    = render 'devise/shared/links'

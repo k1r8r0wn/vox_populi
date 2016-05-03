@@ -52,4 +52,5 @@ describe City, type: :model do
       it { expect(subject).to eq default_city }
     end
   end
+
 end
