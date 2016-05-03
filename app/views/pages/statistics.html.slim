@@ -2,11 +2,15 @@
   .row
     .col-md-6
       h2.text-center Registered users
-      = line_chart User.group_by_day(:created_at).count
+      = line_chart @statistics.registered_users
 
     .col-md-6
       h2.text-center Problems in categories
-      = pie_chart @themes
+      = pie_chart @statistics.problems_in_categories
+
+    .col-md-12
+      h2.text-center Top-5 voted problems
+      = bar_chart @statistics.top_voted_problems
 
   .row.text-center
     .col-md-12
