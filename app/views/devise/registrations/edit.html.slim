@@ -14,6 +14,12 @@
             = f.label :email
             = f.email_field :email, autofocus: true, class: 'form-control'
           .form-group
+            = f.label :avatar
+            = f.file_field :avatar
+            .text-center
+              h4 Your current avatar
+              = image_tag current_user.avatar.thumb, alt: "User's avatar", class: 'avatar'
+          .form-group
             = f.label :password
             = f.password_field :password,
               autocomplete: 'off',

@@ -1,6 +1,8 @@
 .comment-body class = "comment-#{comment.id}-body"
   .header
-    b = comment.user.username
+    span
+      = image_tag comment.user.avatar.thumb, alt: "User's avatar", class: 'avatar small'
+      b = comment.user.username
     '  commented
     b = time_ago_in_words(comment.created_at)
     '  ago:
