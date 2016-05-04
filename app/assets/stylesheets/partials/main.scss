@@ -21,11 +21,11 @@ body {
 }
 
 ::selection {
-  background: $main; /* WebKit/Blink Browsers */
+  background: $light-grey; /* WebKit/Blink Browsers */
 }
 
 ::-moz-selection {
-  background: $main; /* Gecko Browsers */
+  background: $light-grey; /* Gecko Browsers */
 }
 
 /* Typography */
