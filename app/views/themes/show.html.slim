@@ -7,7 +7,7 @@
         i.glyphicon.glyphicon-map-marker
         = @theme.city.title
       .author
-        ' by
+        = image_tag @theme.user.avatar.thumb, alt: "User's avatar", class: 'avatar small'
         = @theme.user.username
     .content
       = @theme.content
@@ -20,8 +20,6 @@
 
         - if is_theme_owner?
           = link_to 'Edit theme', edit_category_theme_path(@category, @theme), class: 'btn btn-primary'
-
-      = link_to 'Go back', category_themes_path(@category), class: 'btn btn-default'
 
     - if current_user
       .row.votes

@@ -11,6 +11,7 @@ namespace :db do
           email: 'admin@mail.com',
           username: 'admin',
           password: 'password',
+          confirmed_at: Time.now,
           role: 2
         )
         print ".done!\n"
@@ -30,6 +31,7 @@ namespace :db do
             email: 'moderator@mail.com',
             username: 'moderator',
             password: 'password',
+            confirmed_at: Time.now,
             role: 1
         )
         print ".done!\n"
@@ -38,7 +40,8 @@ namespace :db do
         user1 = User.create!(
             email: 'user1@mail.com',
             username: 'user1',
-            password: 'password'
+            password: 'password',
+            confirmed_at: Time.now
         )
         print ".done!\n"
 
@@ -59,7 +62,8 @@ namespace :db do
         user2 = User.create!(
             email: 'user2@mail.com',
             username: 'user2',
-            password: 'password'
+            password: 'password',
+            confirmed_at: Time.now
         )
         print ".done!\n"
 
