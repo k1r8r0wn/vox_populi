@@ -1,5 +1,7 @@
 class Category < ActiveRecord::Base
 
+  mount_uploader :image, CategoryImageUploader
+
   belongs_to :user
   has_many   :themes, dependent: :destroy
 
