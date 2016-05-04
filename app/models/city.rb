@@ -1,4 +1,5 @@
 class City < ActiveRecord::Base
+
   scope :find_default_city, -> { find_or_create_by(title: 'Moscow') }
 
   has_many :themes, dependent: :destroy
@@ -16,4 +17,5 @@ class City < ActiveRecord::Base
 
     City.find_default_city
   end
+
 end
