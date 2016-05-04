@@ -18,6 +18,9 @@ gem 'devise-bootstrap-views', '~> 0.0.8'
 
 gem 'kaminari', '~> 0.16.3'
 
+gem 'carrierwave', '~> 0.11.0'
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
+
 gem 'uglifier', '~> 3.0'
 gem 'coffee-rails', '~> 4.1', '>= 4.1.1'
 gem 'jquery-rails'

@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  mount_uploader :avatar, AvatarUploader
 
   before_save :downcase_email
   after_initialize :set_default_role, if: :new_record?
