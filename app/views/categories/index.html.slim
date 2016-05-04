@@ -11,7 +11,7 @@
       .col-lg-3.col-md-4.col-xs-6.thumbnail-wrapper
         .thumbnail
           = link_to category_themes_path(categorie) do
-            = image_tag('default-category.svg', alt: "Default problem's category image")
+            = image_tag categorie.image.thumb, alt: "#{categorie.name} image"
             .caption.text-center
               h4
                 = categorie.name
