@@ -17,8 +17,9 @@ class CategoriesController < ApplicationController
   end
 
   def create
+    authorize Category
     @category = current_user.categories.new(category_params)
-    authorize @category
+
     if @category.save
       redirect_to categories_path, success: "Category '#{@category.name}' is successfully created!"
     else
@@ -29,7 +30,7 @@ class CategoriesController < ApplicationController
 
   def update
     authorize @category
-    if @category.update_attributes(category_params)
+    if @category.update(category_params)
       redirect_to category_themes_path(@category), success: "Category '#{@category.name}' is successfully updated!"
     else
       flash.now[:error] = 'Oops, you made some mistakes below.'

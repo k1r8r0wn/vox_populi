@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_city
 
+  # TODO: Move to themes controller
   def current_city
     @city ||= get_current_city
   end
@@ -30,6 +31,7 @@ class ApplicationController < ActionController::Base
     render file: 'public/500.html', status: 500, layout: false
   end
 
+  # TODO: Move to themes controller
   def get_current_city
     return City.find_by(id: session[:city_id]) if session[:city_id].present?
 

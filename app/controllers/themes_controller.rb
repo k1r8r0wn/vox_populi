@@ -27,9 +27,10 @@ class ThemesController < ApplicationController
   def edit; end
 
   def create
+    authorize Theme
     @theme = @category.themes.new(theme_params)
     @theme.user_id = current_user.id
-    authorize @theme
+
     if @theme.save
       redirect_to category_theme_path(@category, @theme), success: "Theme '#{@theme.title}' is successfully created!"
     else

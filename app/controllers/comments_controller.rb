@@ -12,9 +12,9 @@ class CommentsController < ApplicationController
   end
 
   def create
+    authorize Comment
     @comment = @theme.comments.new(comment_params)
     @comment.user_id = current_user.id
-    authorize @comment
 
     if @comment.save
       flash[:success] = 'Your comment is successfully added below!'

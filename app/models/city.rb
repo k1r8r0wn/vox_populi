@@ -6,6 +6,7 @@ class City < ActiveRecord::Base
 
   validates :title, presence: true
 
+  # TODO: Move into service
   def self.find_by_ip(ip = nil)
     return City.find_default_city if ip.blank?
 
