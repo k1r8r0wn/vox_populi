@@ -18,6 +18,8 @@ gem 'devise-bootstrap-views', '~> 0.0.8'
 
 gem 'kaminari', '~> 0.16.3'
 
+gem 'rails-i18n', '~> 4.0', '>= 4.0.8'
+
 gem 'carrierwave', '~> 0.11.0'
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
