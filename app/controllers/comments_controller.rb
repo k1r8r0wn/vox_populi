@@ -17,9 +17,9 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @comment.save
-      flash[:success] = 'Your comment is successfully added below!'
+      flash[:success] = t('.success')
     else
-      flash[:error] = "Your comment's content can't be blank!"
+      flash[:error] = t('.error')
     end
     redirect_to :back
   end
@@ -30,12 +30,12 @@ class CommentsController < ApplicationController
     authorize @comment
     if @comment.editable?
       if @comment.update_attributes(comment_params)
-        flash[:success] = 'Your comment is successfully updated!'
+        flash[:success] = t('.success')
       else
-        flash[:error] = "Your comment's content can't be blank!"
+        flash[:error] = t('.error')
       end
     else
-      flash[:error] = 'Comment can be updated only in 5 minutes after creation.'
+      flash[:error] = t('.can_t_edit')
     end
     redirect_to :back
   end
@@ -43,9 +43,9 @@ class CommentsController < ApplicationController
   def destroy
     authorize @comment
     if @comment.destroy
-      flash.now[:success] = 'Your comment is successfully deleted!'
+      flash.now[:success] = t('.success')
     else
-      flash.now[:error] = 'Comment was not deleted. Try again.'
+      flash.now[:error] = t('.error')
     end
   end
 

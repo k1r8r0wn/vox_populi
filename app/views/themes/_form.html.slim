@@ -1,8 +1,8 @@
 = t.association :city,
-  label: 'Choose city',
+  label: t('.choose_city'),
   include_blank: false,
   autofocus: true,
-  input_html: { 'data-title' => "It's your current city, right? If no, or you just want another one - please choose it from the list.",
+  input_html: { 'data-title' => t('.current_city'),
                 'data-toggle' => 'tooltip',
                 'data-placement' => 'top',
                 class: 'blue-tooltip' }

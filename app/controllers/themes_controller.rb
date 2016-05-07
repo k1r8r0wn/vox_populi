@@ -32,9 +32,9 @@ class ThemesController < ApplicationController
     @theme.user_id = current_user.id
 
     if @theme.save
-      redirect_to category_theme_path(@category, @theme), success: "Theme '#{@theme.title}' is successfully created!"
+      redirect_to category_theme_path(@category, @theme), success: t('.success', theme: @theme)
     else
-      flash.now[:error] = 'Oops, you made some mistakes below.'
+      flash.now[:error] = t('.error')
       render :new
     end
   end
@@ -43,9 +43,9 @@ class ThemesController < ApplicationController
     @theme = current_user.themes.new(theme_params)
     authorize @theme
     if @theme.save
-      redirect_to category_theme_path(@theme.category, @theme), success: "Theme '#{@theme.title}' is successfully created!"
+      redirect_to category_theme_path(@theme.category, @theme), success: t('.success', theme: @theme.title)
     else
-      flash.now[:error] = 'Oops, you made some mistakes below.'
+      flash.now[:error] = t('.error')
       render :new_separate
     end
   end
@@ -53,9 +53,9 @@ class ThemesController < ApplicationController
   def update
     authorize @theme
     if @theme.update_attributes(theme_params)
-      redirect_to category_theme_path(@category, @theme), success: "Theme '#{@theme.title}' is successfully updated!"
+      redirect_to category_theme_path(@category, @theme), success: t('.success', theme: @theme.title)
     else
-      flash.now[:error] = 'Oops, you made some mistakes below.'
+      flash.now[:error] = t('.error')
       render :edit
     end
   end
@@ -63,9 +63,9 @@ class ThemesController < ApplicationController
   def destroy
     authorize @theme
     if @theme.destroy
-      flash[:success] = 'Theme was successfully deleted.'
+      flash[:success] = t('.success')
     else
-      flash[:error] = 'Oops, theme could not be deleted.'
+      flash[:error] = t('.error')
     end
     redirect_to category_themes_path
   end
@@ -83,7 +83,7 @@ class ThemesController < ApplicationController
   def revote
     current_user.unvote_for(set_theme)
     authorize @theme
-    redirect_to :back, success: 'You successfully delete your vote!'
+    redirect_to :back, success: t('.success')
   end
 
   private
@@ -103,9 +103,9 @@ class ThemesController < ApplicationController
   def voted?
     authorize @theme
     if @theme.voted_by?(current_user)
-      redirect_to :back, success: 'You vote is accepted!'
+      redirect_to :back, success: t('.success')
     else
-      redirect_to :back, error: 'Oops, something goes wrong!'
+      redirect_to :back, error: t('.error')
     end
   end
 

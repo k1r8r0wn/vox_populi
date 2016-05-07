@@ -9,23 +9,24 @@
       h2.title
         = t('.problem_categories')
   .row
-    - @categories.each do |categorie|
+    - @categories.each do |category|
       .col-lg-3.col-md-4.col-xs-6.thumbnail-wrapper
         .thumbnail
-          = link_to category_themes_path(categorie) do
-            = image_tag categorie.image.thumb, alt: "#{categorie.name} image"
+          = link_to category_themes_path(category) do
+            = image_tag category.image.thumb, alt: "#{category.name} image"
             .caption.text-center
               h4
                 - if cookies[:locale] == 'ru'
-                  = categorie.ru_name
+                  = category.ru_name
                 - else
-                  = categorie.name
+                  = category.name
               small.text-muted
-                = t('.problem', count: categorie.themes.count)
+                = t('.problem', count: category.themes.count)
+
           - if current_user && current_user.admin?
-            .links
-              = link_to '', edit_category_path(categorie), class: 'glyphicon glyphicon-pencil'
-              = link_to '', category_path(categorie),
+            .links.category
+              = link_to '', edit_category_path(category), class: 'glyphicon glyphicon-pencil'
+              = link_to '', category_path(category),
                 method: :delete,
                 data: { confirm: t('.delete') },
                 class: 'glyphicon glyphicon-trash red'

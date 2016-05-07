@@ -9,7 +9,11 @@ class StatisticsFacade
     categories = Category.eager_load(:themes)
 
     categories.each do |category|
-      problems << [ category.name, category.themes.size ]
+      if I18n.locale == :ru
+        problems << [ category.ru_name, category.themes.size ]
+      else
+        problems << [ category.name, category.themes.size ]
+      end
     end
 
     problems
@@ -25,4 +29,5 @@ class StatisticsFacade
 
     problems
   end
+
 end

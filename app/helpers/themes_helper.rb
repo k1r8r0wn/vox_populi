@@ -9,4 +9,20 @@ module ThemesHelper
     @theme
   end
 
+  def form_category_name_locale
+    if cookies[:locale] == 'ru'
+      :ru_name
+    else
+      :name
+    end
+  end
+
+  def category_name_locale
+    if cookies[:locale] == 'ru'
+      @category.ru_name
+    else
+      @category.name
+    end
+  end
+
 end

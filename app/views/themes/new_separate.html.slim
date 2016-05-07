@@ -1,19 +1,20 @@
 .row
   .col-sm-6.col-sm-offset-3
-    h2.title.text-center Create new problem
+    h2.title.text-center
+      = t('.create')
 
     = simple_form_for build_theme, url: create_separate_path, method: :post do |t|
       = t.association :city,
-        label: 'Choose city',
+        label: t('.choose_city'),
         include_blank: false,
         autofocus: true,
-        input_html: { 'data-original-title' => "It's your current city, right? If no, or you just want another one - please choose it from the list.",
+        input_html: { 'data-original-title' => t('.current_city'),
                       'data-toggle' =>'tooltip',
                       'data-placement' => 'top',
                       class: 'blue-tooltip' }
-      = t.association :category, label: "Choose problem's category", include_blank: false, required: true
+      = t.association :category, label_method: form_category_name_locale, label: t('.choose_category'), include_blank: false, required: true
       = t.input :title
       = t.input :content, as: :text, input_html: { rows: 5 }
       .text-center
-        = t.submit 'Create', class: 'btn btn-success'
-        = link_to 'Go back', root_path, class: 'btn btn-default'
+        = t.submit t('buttons.create'), class: 'btn btn-success'
+        = link_to t('buttons.back'), root_path, class: 'btn btn-default'

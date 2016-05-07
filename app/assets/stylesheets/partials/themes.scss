@@ -1,10 +1,30 @@
 /* -- Themes -- */
 
 .problem-wrapper {
+
+  .header {
+    position: relative;
+
+    &:hover {
+      .links {
+        display: block;
+      }
+    }
+  }
+
   .content {
     font-family: $lora;
     font-size: 20px;
     margin-bottom: 2em;
+  }
+
+  .location {
+    display: block;
+    margin-top: 1em;
+
+    i {
+      margin-right: .5em;
+    }
   }
 }
 
@@ -17,6 +37,10 @@
 }
 
 /* Votes */
+
+.well h3 {
+  margin-top: 0;
+}
 
 .thumbs-up,
 .thumbs-down {

@@ -1,0 +1,23 @@
+.header.title.text-center
+  h2
+    = @theme.title
+
+  - if current_user && (current_user.admin? || current_user.moderator?)
+    .links.theme
+      - if is_theme_owner?
+        = link_to '', edit_category_theme_path(@category, @theme), class: 'glyphicon glyphicon-pencil'
+        = link_to '', category_theme_path(@category, @theme),
+                method: :delete,
+                data: { confirm: t('.delete') },
+                class: 'glyphicon glyphicon-trash red'
+
+  a.location href='https://www.google.ru/maps/place/#{@theme.city.title}'
+    i.glyphicon.glyphicon-map-marker
+    = @theme.city.title
+
+  .author
+    = image_tag @theme.user.avatar.thumb, alt: "#{@theme.user.username}'s avatar", class: 'avatar small'
+    = @theme.user.username
+
+.content
+  = @theme.content

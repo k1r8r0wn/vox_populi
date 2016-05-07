@@ -21,7 +21,7 @@ class CategoriesController < ApplicationController
     @category = current_user.categories.new(category_params)
 
     if @category.save
-      redirect_to categories_path, success: t('.success', category: @category.name)
+      redirect_to categories_path, success: t('.success', category: category_locale(@category))
     else
       flash.now[:error] = t('.error')
       render :new
@@ -31,7 +31,7 @@ class CategoriesController < ApplicationController
   def update
     authorize @category
     if @category.update(category_params)
-      redirect_to category_themes_path(@category), success: t('.success', category: @category.name)
+      redirect_to category_themes_path(@category), success: t('.success', category: category_locale(@category))
     else
       flash.now[:error] = t('.error')
       render :edit
@@ -49,6 +49,14 @@ class CategoriesController < ApplicationController
   end
 
   private
+
+  def category_locale(category)
+    if cookies[:locale] == 'ru'
+      category.ru_name
+    else
+      category.name
+    end
+  end
 
   def set_category
     @category = Category.find(params[:id])
