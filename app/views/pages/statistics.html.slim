@@ -10,10 +10,11 @@
         = t('.problems_in_categories')
       = pie_chart @statistics.problems_in_categories
 
-    .col-md-12
-      h2.text-center
-        = t('.top_5_voted_problems')
-      = bar_chart @statistics.top_voted_problems
+    - if @statistics.top_voted_problems.any?
+      .col-md-12
+        h2.text-center
+          = t('.top_5_voted_problems')
+        = bar_chart @statistics.top_voted_problems
 
   .row.text-center
     .col-md-12

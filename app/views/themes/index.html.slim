@@ -20,7 +20,11 @@
                 .caption.text-center
                   .location
                     i.glyphicon.glyphicon-map-marker
-                    = theme.city.title
+                    - if cookies[:locale] == 'ru'
+                      = theme.city.ru_name
+                    - else
+                      = theme.city.name
+
                   h4
                     = theme.title
                   small.text-muted

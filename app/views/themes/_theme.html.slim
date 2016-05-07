@@ -11,9 +11,12 @@
                 data: { confirm: t('.delete') },
                 class: 'glyphicon glyphicon-trash red'
 
-  a.location href='https://www.google.ru/maps/place/#{@theme.city.title}'
+  a.location href='https://www.google.ru/maps/place/#{@theme.city.name}'
     i.glyphicon.glyphicon-map-marker
-    = @theme.city.title
+    - if cookies[:locale] == 'ru'
+      = @theme.city.ru_name
+    - else
+      = @theme.city.name
 
   .author
     = image_tag @theme.user.avatar.thumb, alt: "#{@theme.user.username}'s avatar", class: 'avatar small'

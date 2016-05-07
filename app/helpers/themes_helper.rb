@@ -9,7 +9,7 @@ module ThemesHelper
     @theme
   end
 
-  def form_category_name_locale
+  def form_name_locale
     if cookies[:locale] == 'ru'
       :ru_name
     else

@@ -5,6 +5,7 @@
 
     = simple_form_for build_theme, url: create_separate_path, method: :post do |t|
       = t.association :city,
+        label_method: form_name_locale,
         label: t('.choose_city'),
         include_blank: false,
         autofocus: true,
@@ -12,7 +13,7 @@
                       'data-toggle' =>'tooltip',
                       'data-placement' => 'top',
                       class: 'blue-tooltip' }
-      = t.association :category, label_method: form_category_name_locale, label: t('.choose_category'), include_blank: false, required: true
+      = t.association :category, label_method: form_name_locale, label: t('.choose_category'), include_blank: false, required: true
       = t.input :title
       = t.input :content, as: :text, input_html: { rows: 5 }
       .text-center
