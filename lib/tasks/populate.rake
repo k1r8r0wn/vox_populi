@@ -21,6 +21,7 @@ namespace :db do
           print '.'
           Category.create!(
             name: Faker::Lorem.words(2).join(' '),
+            ru_name: Faker::Lorem.words(2).join(' '),
             user_id: admin.id
           )
         end
