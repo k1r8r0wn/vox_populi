@@ -18,10 +18,7 @@
               h4
                 = categorie.name
               small.text-muted
-                - if categorie.themes.count > 0
-                  | #{categorie.themes.count} problem(-s)
-                - else
-                  | There is no problems here yet
+                = t('.problem', count: categorie.themes.count)
           - if current_user && current_user.admin?
             .links
               = link_to '', edit_category_path(categorie), class: 'glyphicon glyphicon-pencil'

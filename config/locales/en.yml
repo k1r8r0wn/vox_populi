@@ -31,7 +31,7 @@ en:
     home:
       h1: "“The world you desire can be won. It exists.. it is real.. it is possible.. it's yours.”"
       footer: 'Ayn Rand, Atlas Shrugged'
-      veiw_categories: 'View problem categories'
+      view_categories: 'View problem categories'
       tell_about_problem: 'Tell about your problem'
 
     statistics:
@@ -40,7 +40,7 @@ en:
       top_5_voted_problems: 'Top-5 voted problems'
 
   menu:
-    ru: 'RU'
+    ru: 'РУС'
     categories: 'Problem categories'
     statistics: 'Statistics'
     profile: 'Edit profile'
@@ -52,6 +52,10 @@ en:
     index:
       no_categories: 'There is no problem categories yet'
       problem_categories: 'Problem categories'
+      problem:
+        zero: 'This category is empty yet'
+        one: 'One problem'
+        other: '%{count} problems'
       create: 'Add new category'
       delete: 'Are you sure you want to delete this category and all its themes?'
 
