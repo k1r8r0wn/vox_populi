@@ -16,7 +16,10 @@
             = image_tag categorie.image.thumb, alt: "#{categorie.name} image"
             .caption.text-center
               h4
-                = categorie.name
+                - if cookies[:locale] == 'ru'
+                  = categorie.ru_name
+                - else
+                  = categorie.name
               small.text-muted
                 = t('.problem', count: categorie.themes.count)
           - if current_user && current_user.admin?
