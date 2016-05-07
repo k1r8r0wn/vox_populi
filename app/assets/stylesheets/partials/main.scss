@@ -17,7 +17,14 @@ body {
 .container {
   padding-top: 3em;
   padding-bottom: 3em;
+
+  @media (max-width: 736px) and (orientation: landscape) {
+    padding-top: 2em;
+    padding-bottom: 1em;
+  }
 }
+
+
 
 ::selection {
   background: $light-grey; /* WebKit/Blink Browsers */
