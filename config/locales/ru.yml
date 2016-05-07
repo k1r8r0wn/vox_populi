@@ -36,7 +36,7 @@ ru:
       tell_about_problem: 'Рассказать о своей проблеме'
 
     statistics:
-      registered_users: 'Зарегистрированные пользователи'
+      registered_users: 'Количество пользователей'
       problems_in_categories: 'Количество проблем в категориях'
       top_5_voted_problems: "Топ-5 проблем с голосом 'за'"
 

@@ -2,7 +2,6 @@
 
 .pages {
   background: $main image-url('home.jpg') no-repeat center;
-  height: 100vh;
   text-align: center;
   background-size: cover;
 
@@ -19,7 +18,8 @@ blockquote h1 {
 
 .pages .centered {
   @media (max-width: 670px) and (orientation: landscape) {
-    position: relative;
+    position: initial;
+    margin: 2em 0;
     top: 0;
     left: 0;
     -webkit-transform: translate(0, 0);
@@ -32,6 +32,7 @@ blockquote h1 {
 
 .pages .locale {
   position: absolute;
+  z-index: 999;
   top: 1em;
   left: 2em;
   margin: 0;
