@@ -4,6 +4,8 @@ class ThemesController < ApplicationController
   before_action :set_category, except: [:new_separate, :create_separate]
   before_action :set_theme, only: [:show, :edit, :update, :destroy]
 
+  helper_method :current_city
+
   def index
     @themes = Theme.where(category_id: params[:category_id])
     @themes = @themes.page(params[:page]).per(10)
@@ -86,6 +88,10 @@ class ThemesController < ApplicationController
     redirect_to :back, success: t('.success')
   end
 
+  def current_city
+    @city ||= get_current_city
+  end
+
   private
 
   def set_theme
@@ -107,6 +113,15 @@ class ThemesController < ApplicationController
     else
       redirect_to :back, error: t('.error')
     end
+  end
+
+  def get_current_city
+    return City.find_by(id: session[:city_id]) if session[:city_id].present?
+
+    city = City.find_by_ip(request.remote_ip)
+    session[:city_id] = city.try(:id) if city
+
+    city
   end
 
 end
