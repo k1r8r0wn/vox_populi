@@ -13,12 +13,11 @@
             = f.email_field :email,
               autofocus: true,
               class: 'form-control',
-              'data-original-title' => 'We will send you reset password instructions on this email address',
+              'data-original-title' => t('devise.tooltips.reset_password_instructions'),
               'data-toggle' => 'tooltip',
               'data-placement' => 'top'
           .text-center
-            = f.submit t('.send', default: 'Send'),
-            class: 'btn btn-primary'
+            = f.submit t('devise.buttons.send'), class: 'btn btn-primary'
 
 .row
   .col-md-offset-3.col-md-6.col-sm-12

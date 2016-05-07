@@ -2,7 +2,8 @@
   .col-md-12.text-center
     - if controller_name == 'sessions' || controller_name == 'registrations' && devise_mapping.omniauthable?
       .omniauth-providers
-        p You can also sign in with:
+        p
+          = t('.you_can_also_sign_in_with')
         - resource_class.omniauth_providers.each do |provider|
           = link_to '', omniauth_authorize_path(resource_name, provider), class: "#{provider}"
     - if controller_name != 'sessions'
