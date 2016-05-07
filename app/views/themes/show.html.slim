@@ -25,7 +25,7 @@
           = t('.leave_comment')
 
       = simple_form_for [@category, @theme, Comment.new] do |t|
-        = t.input :content, as: :text, input_html: { rows: 2 }, autofocus: true, label: false
+        = t.input :content, as: :text, input_html: { rows: 2 }, autofocus: true, label: false, placeholder: t('.content')
         = t.submit t('buttons.submit'), class: 'btn btn-success'
 
     - else

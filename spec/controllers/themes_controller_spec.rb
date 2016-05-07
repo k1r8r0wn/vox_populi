@@ -82,7 +82,7 @@ RSpec.describe ThemesController, type: :controller do
         post(
           :create,
           category_id: category,
-          theme: { title: 'Theme', content: 'Content', city_id: city.id }
+          theme: { title: 'Problem', content: 'Content', city_id: city.id }
         )
       end
 
@@ -92,7 +92,7 @@ RSpec.describe ThemesController, type: :controller do
       end
 
       it 'shows flash[:success] message' do
-        expect(flash[:success]).to eq("Theme 'Theme' is successfully created!")
+        expect(flash[:success]).to eq("Problem 'Problem' is successfully created!")
       end
 
       it "renders 'new' page again if validations fail" do
@@ -109,7 +109,7 @@ RSpec.describe ThemesController, type: :controller do
     before(:each) do
       post(
         :create_separate,
-        theme: { category_id: category, title: 'Theme', content: 'Content', city_id: city.id }
+        theme: { category_id: category, title: 'Problem', content: 'Content', city_id: city.id }
       )
     end
 
@@ -118,7 +118,7 @@ RSpec.describe ThemesController, type: :controller do
       before do
         post(
           :create_separate,
-          theme: { category_id: category, title: 'Theme', content: 'Content', city_id: city.id }
+          theme: { category_id: category, title: 'Problem', content: 'Content', city_id: city.id }
         )
       end
 
@@ -128,7 +128,7 @@ RSpec.describe ThemesController, type: :controller do
       end
 
       it 'shows flash[:success] message' do
-        expect(flash[:success]).to eq("Theme 'Theme' is successfully created!")
+        expect(flash[:success]).to eq("Problem 'Problem' is successfully created!")
       end
 
       it "renders 'new' page again if validations fail" do
@@ -142,18 +142,18 @@ RSpec.describe ThemesController, type: :controller do
   end
 
   describe 'PUT, PATCH #update' do
-    before { put :update, category_id: category, id: theme, theme: { title: 'Theme2', content: 'Content' } }
+    before { put :update, category_id: category, id: theme, theme: { title: 'Problem2', content: 'Content' } }
 
     context 'current_user' do
       before { sign_in(user) }
-      before { put :update, category_id: category, id: theme, theme: {title: 'Theme2', content: 'Content' } }
+      before { put :update, category_id: category, id: theme, theme: {title: 'Problem2', content: 'Content' } }
 
       it 'redirects to updated theme if validations pass' do
         expect(response).to redirect_to(category_theme_path(category, theme))
       end
 
       it 'shows flash[:success] message' do
-        expect(flash[:success]).to eq("Theme 'Theme2' is successfully updated!")
+        expect(flash[:success]).to eq("Problem 'Problem2' is successfully updated!")
       end
 
       it "renders 'new' page again if validations fail" do

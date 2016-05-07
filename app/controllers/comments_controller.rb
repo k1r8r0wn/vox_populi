@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
 
   def update
     authorize @comment
-    if @comment.editable?
+    if @comment.editable? || current_user.admin? || current_user.moderator?
       if @comment.update_attributes(comment_params)
         flash[:success] = t('.success')
       else

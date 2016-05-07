@@ -17,7 +17,7 @@ describe 'Creating subcomments', type: :feature do
     before(:each) do
       create_subcomment
       within '.reply_comment-form' do
-        fill_in 'Content', with: 'I am a subcomment'
+        fill_in "Comment's content", with: 'I am a subcomment'
         click_button 'Reply'
       end
     end
@@ -29,7 +29,7 @@ describe 'Creating subcomments', type: :feature do
     end
 
     it 'displays the flash[:success] message' do
-      expect(page).to have_content('Your comment is successfully added below!')
+      expect(page).to have_content('Comment is successfully added below!')
     end
   end
 
@@ -39,11 +39,11 @@ describe 'Creating subcomments', type: :feature do
 
       create_subcomment
       within '.reply_comment-form' do
-        fill_in 'Content', with: ''
+        fill_in "Comment's content", with: ''
         click_button 'Reply'
       end
 
-      expect(page).to have_content("Your comment's content can't be blank!")
+      expect(page).to have_content("Comment's content can't be blank!")
       expect(Comment.count).to eq(1)
 
       visit category_theme_path(category, theme)
@@ -55,7 +55,7 @@ describe 'Creating subcomments', type: :feature do
     before do
       create_subcomment
       within '.reply_comment-form' do
-        fill_in 'Content', with: 'I am a subcomment'
+        fill_in "Comment's content", with: 'I am a subcomment'
         click_button 'Reply'
       end
       visit category_theme_path(category, theme)

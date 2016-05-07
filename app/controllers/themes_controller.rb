@@ -32,7 +32,7 @@ class ThemesController < ApplicationController
     @theme.user_id = current_user.id
 
     if @theme.save
-      redirect_to category_theme_path(@category, @theme), success: t('.success', theme: @theme)
+      redirect_to category_theme_path(@category, @theme), success: t('.success', theme: @theme.title)
     else
       flash.now[:error] = t('.error')
       render :new

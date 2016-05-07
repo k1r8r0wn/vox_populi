@@ -22,7 +22,7 @@ describe 'Deleting comments', type: :feature do
   end
 
   it 'displays the flash[:success] message', js: true do
-    expect(page).to have_content('Your comment is successfully deleted!')
+    expect(page).to have_content('This comment is successfully deleted!')
   end
 
 end

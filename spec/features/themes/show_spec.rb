@@ -38,9 +38,9 @@ describe 'Theme', type: :feature do
 
         it_behaves_like 'posted comment'
 
-        it "displays the 'Want to leave comments? Sign in or Sign up.' message" do
+        it "displays the 'Want to leave comments?' message" do
           within '.comments-wrapper' do
-            expect(page).to have_content('Want to leave comments? Sign in or Sign up.')
+            expect(page).to have_content('Want to leave comments?')
           end
         end
       end
