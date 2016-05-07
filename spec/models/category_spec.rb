@@ -14,6 +14,10 @@ describe Category, type: :model do
     it { expect(category).to validate_presence_of(:name) }
 
     it { expect(category).to validate_uniqueness_of(:name).case_insensitive }
+
+    it { expect(category).to validate_presence_of(:ru_name) }
+
+    it { expect(category).to validate_uniqueness_of(:ru_name).case_insensitive }
   end
 
   describe '#capitalize_name' do

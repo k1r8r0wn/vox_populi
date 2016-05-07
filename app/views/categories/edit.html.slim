@@ -1,9 +1,10 @@
 .row
   .col-sm-6.col-sm-offset-3
-    h2.title.text-center Edit category
+    h2.title.text-center
+      = t('.edit')
 
     = simple_form_for @category do |c|
       = render partial: 'form', locals: { c: c }
       .text-center
-        = c.submit 'Update', class: 'btn btn-success'
-        = link_to 'Go back', categories_path, class: 'btn btn-default'
+        = c.submit t('buttons.update'), class: 'btn btn-success'
+        = link_to t('buttons.back'), categories_path, class: 'btn btn-default'

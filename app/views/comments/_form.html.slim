@@ -1,4 +1,4 @@
 = simple_form_for [@category, @theme, @comment], html: { class: 'comment-form text-center' } do |t|
-  = t.input :content, as: :text, input_html: {rows: 2}, autofocus: true, label: false, placeholder: 'Content'
-  = t.submit 'Update', class: 'btn btn-success'
-  = link_to 'Cancel', :back, class: 'btn btn-default'
+  = t.input :content, as: :text, input_html: { rows: 2 }, autofocus: true, label: false, placeholder: t('.content')
+  = t.submit t('buttons.update'), class: 'btn btn-success'
+  = link_to t('buttons.cancel'), :back, class: 'btn btn-default'

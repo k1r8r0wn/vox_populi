@@ -33,12 +33,4 @@
   .content {
     padding-top: .5em;
   }
-
-  .links {
-    @media screen and (min-width: 450px) {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-  }
 }

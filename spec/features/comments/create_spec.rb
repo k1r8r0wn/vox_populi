@@ -12,7 +12,7 @@ describe 'Creating comments', type: :feature do
 
     visit category_theme_path(category, theme)
     within '#new_comment' do
-      fill_in 'Content', with: options[:content]
+      fill_in "Comment's content", with: options[:content]
       click_button 'Submit'
     end
   end
@@ -31,7 +31,7 @@ describe 'Creating comments', type: :feature do
     end
 
     it 'displays the flash[:success] message' do
-      expect(page).to have_content('Your comment is successfully added below!')
+      expect(page).to have_content('Comment is successfully added below!')
     end
 
     it 'hides the edit symbol due 5 minutes after comment was created' do
@@ -48,7 +48,7 @@ describe 'Creating comments', type: :feature do
 
       create_comment content: ''
 
-      expect(page).to have_content("Your comment's content can't be blank!")
+      expect(page).to have_content("Comment's content can't be blank!")
       expect(Comment.count).to eq(0)
 
       visit category_theme_path(category, theme)

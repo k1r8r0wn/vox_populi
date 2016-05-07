@@ -1,0 +1,6 @@
+- if cookies[:locale] == 'ru'
+  li
+    = link_to t('menu.en'), change_locale_path(:en)
+- else
+  li
+    = link_to t('menu.ru'), change_locale_path(:ru)

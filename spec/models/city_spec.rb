@@ -7,14 +7,14 @@ describe City, type: :model do
   end
 
   context 'validations' do
-    it { should validate_presence_of :title }
+    it { should validate_presence_of :name }
   end
 
   describe '.find_by_ip' do
     subject { City.find_by_ip(ip) }
 
-    let!(:default_city) { create(:city, title: 'Moscow') }
-    let!(:city) { create(:city, title: 'Omsk') }
+    let!(:default_city) { create(:city, name: 'Moscow') }
+    let!(:city) { create(:city, name: 'Omsk') }
     let(:sypex_geo) { instance_double(SypexGeo::Database) }
     let(:location) { instance_double(SypexGeo::Result) }
 

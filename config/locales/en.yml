@@ -1,23 +1,193 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+
+  activerecord:
+    models:
+      user: 'user'
+      city: 'city'
+      category: 'category'
+      theme: 'problem'
+      comment: 'comment'
+
+    attributes:
+      user:
+        username: 'Username'
+        email: 'Email'
+        avatar: 'Avatar'
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
+        current_password: 'Current password'
+      city:
+        title: 'Title'
+      category:
+        name: 'Name'
+        ru_name: 'Russian name'
+        image: 'Image'
+      theme:
+        title: 'Title'
+        content: 'Content'
+      comment:
+        content: 'Comment'
+
+  pages:
+    home:
+      h1: "“The world you desire can be won. It exists.. it is real.. it is possible.. it's yours.”"
+      footer: "Ayn Rand, “Atlas Shrugged”"
+      view_categories: 'View problem categories'
+      tell_about_problem: 'Tell about your problem'
+
+    statistics:
+      registered_users: 'Registered users'
+      problems_in_categories: 'Problems in categories'
+      top_5_voted_problems: 'Top-5 voted problems'
+
+  menu:
+    ru: 'РУС'
+    categories: 'Problem categories'
+    statistics: 'Statistics'
+    profile: 'Edit profile'
+    administration: 'Administration'
+    sign_in: 'Sign in'
+    sign_out: 'Sign out'
+
+  categories:
+    index:
+      no_categories: 'There is no problem categories yet'
+      problem_categories: 'Problem categories'
+      problem:
+        zero: 'This category is empty yet'
+        one: 'One problem'
+        other: '%{count} problems'
+      create: 'Add new category'
+      delete: 'Are you sure you want to delete this category and all its themes?'
+
+    new:
+      create: 'Add new category'
+
+    edit:
+      edit: 'Edit category'
+
+    create:
+      success: "Category '%{category}' is successfully created!"
+      error: 'Oops, you made some mistakes below.'
+
+    update:
+      success: "Category '%{category}' is successfully updated!"
+      error: 'Oops, you made some mistakes below.'
+
+    destroy:
+      success: 'This category is successfully deleted!'
+      error: 'Oops, something goes wrong!'
+
+  themes:
+    index:
+      no_problems: 'There is no problems here yet.'
+      problems: "Problems in '%{category}' category"
+      created: 'Created %{time} ago'
+      create_first: 'Add the first one'
+      create: 'Add new problem'
+
+    new:
+      create: 'Add new problem'
+
+    new_separate:
+      create: 'Add new problem'
+      choose_city: 'Choose city'
+      choose_category: "Choose problem's category"
+      current_city: "It's your current city, right? If you need another one - please choose it from the list"
+
+    form:
+      choose_city: 'Choose city'
+      current_city: "It's your current city, right? If you need another one - please choose it from the list"
+
+    show:
+      comments: 'Comments'
+      leave_first_comment: 'Leave the first comment'
+      content: "Comment's content"
+      leave_comment: 'Leave your comment'
+      want_to_leave_comments: 'Want to leave comments?'
+      sign_in: 'Sign in'
+      or: ' or '
+      sign_up: 'Sign up'
+
+    edit:
+      edit: 'Edit problem'
+
+    create:
+      success: "Problem '%{theme}' is successfully created!"
+      error: 'Oops, you made some mistakes below.'
+
+    create_separate:
+      success: "Problem '%{theme}' is successfully created!"
+      error: 'Oops, you made some mistakes below.'
+
+    update:
+      success: "Problem '%{theme}' is successfully updated!"
+      error: 'Oops, you made some mistakes below.'
+
+    destroy:
+      success: 'This problem is successfully deleted!'
+      error: 'Oops, something goes wrong!'
+
+    vote_for:
+      success: 'Thanks! You vote is accepted.'
+      error: 'Oops, something goes wrong!'
+
+    vote_against:
+      success: 'Thanks! You vote is accepted.'
+      error: 'Oops, something goes wrong!'
+
+    revote:
+      success: 'You successfully delete your vote!'
+
+    theme:
+      delete: "Are you sure you want to delete this problem & all it's comments?"
+
+    votes:
+      how_is_this_problem: 'How is this problem for you?'
+      total_votes: 'Total votes:'
+      want_to_revote: 'Change your mind?'
+
+  comments:
+    create:
+      success: 'Comment is successfully added below!'
+      error: "Comment's content can't be blank!"
+
+    update:
+      success: 'Comment is successfully updated!'
+      error: "Comment's content can't be blank!"
+      can_t_edit: 'Comment can be updated only in 5 minutes after creation.'
+
+    destroy:
+      success: 'This comment is successfully deleted!'
+      error: 'This comment was not deleted. Try again.'
+
+    comment:
+      commented: 'commented %{time} ago'
+      delete: 'Are you sure you want to delete this comment & all subcomments?'
+
+    form:
+      content: "Comment's content"
+
+  subcomments:
+    create:
+      success: 'Comment is successfully added below!'
+      error: "Comment's content can't be blank!"
+
+    form:
+      content: "Comment's content"
+
+  buttons:
+    back: 'Go back'
+    create: 'Create'
+    update: 'Update'
+    submit: 'Submit'
+    reply: 'Reply'
+    cancel: 'Cancel'
+
+  views:
+    pagination:
+      first: '&laquo;'
+      last: '&raquo;'
+      next: '&rsaquo;'
+      previous: '&lsaquo;'
+      truncate: '&hellip;'

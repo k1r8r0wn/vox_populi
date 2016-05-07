@@ -15,9 +15,9 @@ class SubcommentsController < ApplicationController
     @subcomment.theme_id = @theme.id
 
     if @subcomment.save
-      flash[:success] = 'Your comment is successfully added below!'
+      flash[:success] = t('.success')
     else
-      flash[:error] = "Your comment's content can't be blank!"
+      flash[:error] = t('.error')
     end
     redirect_to :back
   end

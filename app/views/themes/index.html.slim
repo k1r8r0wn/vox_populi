@@ -1,22 +1,39 @@
 .row
   .col-md-12.text-center
-    h2.title List of all #{@category.name} problems:
+    h2.title
+      = t('.problems', category: category_name_locale)
+
+.row
+  .col-md-12.text-center
 
     - if @themes.empty?
-      p.title There is no problems here yet.
-      = link_to 'Create the first one', new_category_theme_path(@category), class: 'btn btn-success', type: 'button'
+      p.title
+        = t('.no_problems')
+      = link_to t('.create_first'), new_category_theme_path(@category), class: 'btn btn-success', type: 'button'
 
     - else
+      .row
+        - @themes.each do |theme|
+          .col-md-6.thumbnail-wrapper
+            .thumbnail
+              = link_to category_theme_path(@category, theme) do
+                .caption.text-center
+                  .location
+                    i.glyphicon.glyphicon-map-marker
+                    - if cookies[:locale] == 'ru'
+                      = theme.city.ru_name
+                    - else
+                      = theme.city.name
 
-      - @themes.each do |theme|
-
-        h2
-          = link_to theme.title, category_theme_path(@category, theme)
+                  h4
+                    = theme.title
+                  small.text-muted
+                    = t('.created', time: time_ago_in_words(theme.created_at))
 
       .row
         .col-md-12.text-center
           = paginate @themes
 
-      = link_to 'Create new one', new_category_theme_path(@category), class: 'btn btn-success', type: 'button'
+      = link_to t('.create'), new_category_theme_path(@category), class: 'btn btn-success', type: 'button'
 
-    = link_to 'Go back', categories_path,  class: 'btn btn-default'
+    = link_to t('buttons.back'), categories_path,  class: 'btn btn-default'

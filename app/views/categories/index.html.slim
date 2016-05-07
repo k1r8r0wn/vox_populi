@@ -1,34 +1,37 @@
 - if @categories.empty?
   .row
     .col-md-12.text-center
-      h2.title There is no problem categories yet
+      h2.title
+        = t('.no_categories')
 - else
   .row
     .col-md-12.text-center
-      h2.title List of all problem categories
+      h2.title
+        = t('.problem_categories')
   .row
-    - @categories.each do |categorie|
+    - @categories.each do |category|
       .col-lg-3.col-md-4.col-xs-6.thumbnail-wrapper
         .thumbnail
-          = link_to category_themes_path(categorie) do
-            = image_tag categorie.image.thumb, alt: "#{categorie.name} image"
+          = link_to category_themes_path(category) do
+            = image_tag category.image.thumb, alt: "#{category.name} image"
             .caption.text-center
               h4
-                = categorie.name
-              small.text-muted
-                - if categorie.themes.count > 0
-                  | #{categorie.themes.count} problem(-s)
+                - if cookies[:locale] == 'ru'
+                  = category.ru_name
                 - else
-                  | There is no problems here yet
+                  = category.name
+              small.text-muted
+                = t('.problem', count: category.themes.count)
+
           - if current_user && current_user.admin?
-            .links
-              = link_to '', edit_category_path(categorie), class: 'glyphicon glyphicon-pencil'
-              = link_to '', category_path(categorie),
+            .links.category
+              = link_to '', edit_category_path(category), class: 'glyphicon glyphicon-pencil'
+              = link_to '', category_path(category),
                 method: :delete,
-                data: { confirm: 'Are you sure you want to delete this category and all its themes?' },
-                class: 'glyphicon glyphicon-trash red '
+                data: { confirm: t('.delete') },
+                class: 'glyphicon glyphicon-trash red'
 
 - if current_user && current_user.admin?
   .row
     .col-md-12.text-center
-      = link_to 'Add new category', new_category_path, class: 'btn btn-success'
+      = link_to  t('.create'), new_category_path, class: 'btn btn-success'

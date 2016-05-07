@@ -18,7 +18,7 @@ describe 'Updating comments', type: :feature do
       before(:each) do
         update_comment
         within '.comment-form' do
-          fill_in 'Content', with: 'I am an updated comment'
+          fill_in "Comment's content", with: 'I am an updated comment'
           click_button 'Update'
         end
       end
@@ -30,7 +30,7 @@ describe 'Updating comments', type: :feature do
       end
 
       it 'displays the flash[:success] message' do
-        expect(page).to have_content('Your comment is successfully updated!')
+        expect(page).to have_content('Comment is successfully updated!')
       end
     end
 
@@ -38,13 +38,13 @@ describe 'Updating comments', type: :feature do
       before do
         update_comment
         within '.comment-form' do
-          fill_in 'Content', with: ''
+          fill_in "Comment's content", with: ''
           click_button 'Update'
         end
       end
 
       it 'displays the flash[:error] message' do
-        expect(page).to have_content("Your comment's content can't be blank!")
+        expect(page).to have_content("Comment's content can't be blank!")
         expect(page).to have_content(/Content/)
       end
     end
@@ -69,7 +69,7 @@ describe 'Updating comments', type: :feature do
       update_comment
       comment.update(created_at: 5.minutes.ago)
       within '.comment-form' do
-        fill_in 'Content', with: 'I am an updated comment'
+        fill_in "Comment's content", with: 'I am an updated comment'
         click_button 'Update'
       end
     end

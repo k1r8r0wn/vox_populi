@@ -1,8 +1,13 @@
+ul.locale
+  = render 'partials/locale'
+
+= render 'pages/fork_me_on_github'
+
 .centered
   .row
     .col-md-12
       blockquote
-        h1 “The world you desire can be won. It exists.. it is real.. it is possible.. it's yours.”
-        footer Ayn Rand, Atlas Shrugged
-      = link_to 'View problem categories', categories_path, class: 'btn btn-primary', type: 'button'
-      = link_to 'Tell about your problem', new_separate_path, class: 'btn btn-success', type: 'button'
+        h1 = t('.h1')
+        footer = t('.footer')
+      = link_to t('.view_categories'), categories_path, class: 'btn btn-primary', type: 'button'
+      = link_to t('.tell_about_problem'), new_separate_path, class: 'btn btn-success', type: 'button'

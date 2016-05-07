@@ -1,0 +1,7 @@
+ru:
+  simple_form:
+    "yes": 'Да'
+    "no": 'Нет'
+    required:
+      text: 'Обязательное поле'
+      mark: '*'

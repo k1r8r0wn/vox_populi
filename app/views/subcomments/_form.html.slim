@@ -1,5 +1,5 @@
 = form_tag category_theme_comment_subcomments_path(@category, @theme, @comment), method: 'post', class: 'text-center reply_comment-form' do
   .form-group
-    = text_area_tag 'subcomment[content]', nil, class: 'form-control', autofocus: true, placeholder: 'Content'
-  = submit_tag 'Reply', class: 'btn btn-success'
-  = link_to 'Cancel', :back, class: 'btn btn-default'
+    = text_area_tag 'subcomment[content]', nil, class: 'form-control', autofocus: true, placeholder: t('.content')
+  = submit_tag t('buttons.reply'), class: 'btn btn-success'
+  = link_to t('buttons.cancel'), :back, class: 'btn btn-default'

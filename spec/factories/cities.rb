@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :city do
-    title 'City name'
+    sequence(:name) { |i| "Name#{i}" }
+    sequence(:ru_name) { |i| "Name#{i}" }
   end
 end

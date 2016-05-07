@@ -34,7 +34,7 @@ describe CategoriesController, type: :controller do
   describe 'POST #create' do
     context 'current_user' do
       before { sign_in(user) }
-      before { post :create, category: { name: 'Test' } }
+      before { post :create, category: { name: 'Test', ru_name: 'Тест' } }
 
       it 'redirects to categories path if validations pass' do
         expect(response).to redirect_to(categories_path)
