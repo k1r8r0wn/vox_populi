@@ -1,11 +1,13 @@
 - if @categories.empty?
   .row
     .col-md-12.text-center
-      h2.title There is no problem categories yet
+      h2.title
+        = t('.no_categories')
 - else
   .row
     .col-md-12.text-center
-      h2.title List of all problem categories
+      h2.title
+        = t('.problem_categories')
   .row
     - @categories.each do |categorie|
       .col-lg-3.col-md-4.col-xs-6.thumbnail-wrapper
@@ -25,10 +27,10 @@
               = link_to '', edit_category_path(categorie), class: 'glyphicon glyphicon-pencil'
               = link_to '', category_path(categorie),
                 method: :delete,
-                data: { confirm: 'Are you sure you want to delete this category and all its themes?' },
-                class: 'glyphicon glyphicon-trash red '
+                data: { confirm: t('.delete') },
+                class: 'glyphicon glyphicon-trash red'
 
 - if current_user && current_user.admin?
   .row
     .col-md-12.text-center
-      = link_to 'Add new category', new_category_path, class: 'btn btn-success'
+      = link_to  t('.create'), new_category_path, class: 'btn btn-success'

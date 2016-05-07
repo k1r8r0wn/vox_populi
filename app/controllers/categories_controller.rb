@@ -21,9 +21,9 @@ class CategoriesController < ApplicationController
     @category = current_user.categories.new(category_params)
 
     if @category.save
-      redirect_to categories_path, success: "Category '#{@category.name}' is successfully created!"
+      redirect_to categories_path, success: t('.success', category: @category.name)
     else
-      flash.now[:error] = 'Oops, you made some mistakes below.'
+      flash.now[:error] = t('.error')
       render :new
     end
   end
@@ -31,9 +31,9 @@ class CategoriesController < ApplicationController
   def update
     authorize @category
     if @category.update(category_params)
-      redirect_to category_themes_path(@category), success: "Category '#{@category.name}' is successfully updated!"
+      redirect_to category_themes_path(@category), success: t('.success', category: @category.name)
     else
-      flash.now[:error] = 'Oops, you made some mistakes below.'
+      flash.now[:error] = t('.error')
       render :edit
     end
   end
@@ -41,9 +41,9 @@ class CategoriesController < ApplicationController
   def destroy
     authorize @category
     if @category.destroy
-      flash[:success] = 'This category is successfully deleted!'
+      flash[:success] = t('.success')
     else
-      flash[:error] = 'Oops, category could not be deleted.'
+      flash[:error] = t('.error')
     end
     redirect_to categories_path
   end
