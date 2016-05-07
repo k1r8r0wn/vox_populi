@@ -17,13 +17,15 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'themes/new' => 'themes#new_separate', as: :new_separate
-  post 'themes/create' => 'themes#create_separate', as: :create_separate
-
   root 'pages#home'
 
-  get '/statistics' => 'pages#statistics', as: :statistics
+  get 'themes/new', to: 'themes#new_separate', as: :new_separate
+  post 'themes/create', to: 'themes#create_separate', as: :create_separate
 
-  get '*path' => redirect('/')
+  get '/statistics', to: 'pages#statistics', as: :statistics
+
+  get '/change_locale/:locale', to: 'sessions#change_locale', as: :change_locale
+
+  get '*path', to: redirect('/')
 
 end

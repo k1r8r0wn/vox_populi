@@ -46,10 +46,31 @@ en:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
+      new:
+        remember_me: 'remember me'
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+    shared:
+      links:
+        you_can_also_sign_in_with: "You can also sign in with:"
+    buttons:
+      sign_up: "Sign up"
+      send: "Send"
+      resend: "Resend"
+      change: "Change"
+      update: "Update"
+      delete: "Yes, delete"
+    tooltips:
+      visible_for_you: "Visible only for you"
+      minimum_length: "Minimum password length is 8 characters"
+      reset_password_instructions: "We will send you reset password instructions on this email address"
+      leave_blank: "Leave blank if you don't want to change it"
+      we_need_your_current_password: "We need your current password to confirm your changes"
+    other:
+      edit_profile: "Edit profile"
+      current_avatar: "Your current avatar"
   errors:
     messages:
       already_confirmed: "was already confirmed, please try signing in"

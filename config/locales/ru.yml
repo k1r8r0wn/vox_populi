@@ -1,0 +1,78 @@
+ru:
+
+  activerecord:
+    models:
+      user: 'пользователь'
+      city: 'город'
+      category: 'категория'
+      theme: 'проблема'
+      comment: 'комментарий'
+
+    attributes:
+      user:
+        username: 'Имя'
+        email: 'Email'
+        avatar: 'Аватар'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        current_password: 'Текущий пароль'
+      city:
+        title: 'Название'
+      category:
+        name: 'Название'
+        image: 'Фотография'
+      theme:
+        title: 'Заголовок'
+        content: 'Контент'
+      comment:
+        content: 'Комментарий'
+  pages:
+    home:
+      h1: "“Мира, которого вы хотели, можно добиться. Он существует.. он реален.. он возможен.. он ваш.”"
+      footer: 'Айн Рэнд, Атлант расправил плечи'
+      view_categories: 'Посмотреть категории проблем'
+      tell_about_problem: 'Рассказать о своей проблеме'
+
+    statistics:
+      registered_users: 'Зарегистрированные пользователи'
+      problems_in_categories: 'Количество проблем в категориях'
+      top_5_voted_problems: "Топ-5 проблем с голосом 'за'"
+
+  menu:
+    en: 'АНГЛ'
+    categories: 'Категории проблем'
+    statistics: 'Статистика'
+    profile: 'Редактировать профиль'
+    administration: 'Панель администратора'
+    sign_in: 'Войти'
+    sign_out: 'Выйти'
+
+  categories:
+    index:
+      no_categories: 'Ни одной проблемной категории не найдено.'
+      problem_categories: 'Категории проблем'
+      create: 'Добавить новую категорию'
+      delete: 'Вы уверены что хотите удалить выбранную категорию и все входящие в неё проблемы?'
+
+    new:
+      create: 'Добавить новую категорию'
+
+    edit:
+      edit: 'Редактировать категорию'
+
+    create:
+      success: "Категория '%{category}' была успешно создана!"
+      error: 'Упс, исправьте ошибки ниже.'
+
+    update:
+      success: "Категория '%{category}' была успешно обновлена!"
+      error: 'Упс, исправьте ошибки ниже.'
+
+    destroy:
+      success: 'Выбранная категория была успешно удалена!'
+      error: 'Упс, что-то пошло не так.'
+
+  buttons:
+    back: 'Вернуться назад'
+    create: 'Создать'
+    update: 'Обновить'

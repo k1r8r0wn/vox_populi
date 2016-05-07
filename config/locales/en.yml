@@ -1,23 +1,79 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+
+  activerecord:
+    models:
+      user: 'user'
+      city: 'city'
+      category: 'category'
+      theme: 'problem'
+      comment: 'comment'
+
+    attributes:
+      user:
+        username: 'Username'
+        email: 'Email'
+        avatar: 'Avatar'
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
+        current_password: 'Current password'
+      city:
+        title: 'Title'
+      category:
+        name: 'Name'
+        image: 'Image'
+      theme:
+        title: 'Title'
+        content: 'Content'
+      comment:
+        content: 'Comment'
+
+  pages:
+    home:
+      h1: "“The world you desire can be won. It exists.. it is real.. it is possible.. it's yours.”"
+      footer: 'Ayn Rand, Atlas Shrugged'
+      veiw_categories: 'View problem categories'
+      tell_about_problem: 'Tell about your problem'
+
+    statistics:
+      registered_users: 'Registered users'
+      problems_in_categories: 'Problems in categories'
+      top_5_voted_problems: 'Top-5 voted problems'
+
+  menu:
+    ru: 'RU'
+    categories: 'Problem categories'
+    statistics: 'Statistics'
+    profile: 'Edit profile'
+    administration: 'Administration'
+    sign_in: 'Sign in'
+    sign_out: 'Sign out'
+
+  categories:
+    index:
+      no_categories: 'There is no problem categories yet'
+      problem_categories: 'Problem categories'
+      create: 'Add new category'
+      delete: 'Are you sure you want to delete this category and all its themes?'
+
+    new:
+      create: 'Add new category'
+
+    edit:
+      edit: 'Edit category'
+
+    create:
+      success: "Category '%{category}' is successfully created!"
+      error: 'Oops, you made some mistakes below.'
+
+    update:
+      success: "Category '%{category}' is successfully updated!"
+      error: 'Oops, you made some mistakes below.'
+
+    destroy:
+      success: 'This category is successfully deleted!'
+      error: 'Oops, something goes wrong'
+
+  buttons:
+    back: 'Go back'
+    create: 'Create'
+    update: 'Update'

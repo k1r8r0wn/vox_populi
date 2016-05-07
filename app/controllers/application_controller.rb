@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+  before_action :set_locale
+
   rescue_from Pundit::NotAuthorizedError, with: :render_403
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from ActiveSupport::MessageVerifier::InvalidSignature, with: :render_500
@@ -40,4 +42,15 @@ class ApplicationController < ActionController::Base
 
     city
   end
+
+  def set_locale
+    if cookies[:locale] && I18n.available_locales.include?(cookies[:locale].to_sym)
+      lang = cookies[:locale].to_sym
+    else
+      lang = I18n.default_locale
+      cookies.permanent[:locale] = lang
+    end
+    I18n.locale = lang
+  end
+
 end
