@@ -1,17 +1,20 @@
 .main-container
   .row
     .col-md-6
-      h2.text-center Registered users
+      h2.text-center
+        = t('.registered_users')
       = line_chart @statistics.registered_users
 
     .col-md-6
-      h2.text-center Problems in categories
+      h2.text-center
+        = t('.problems_in_categories')
       = pie_chart @statistics.problems_in_categories
 
     .col-md-12
-      h2.text-center Top-5 voted problems
+      h2.text-center
+        = t('.top_5_voted_problems')
       = bar_chart @statistics.top_voted_problems
 
   .row.text-center
     .col-md-12
-      = link_to 'Go back', :back, class: 'btn btn-default'
+      = link_to t('buttons.back'), :back, class: 'btn btn-default'
