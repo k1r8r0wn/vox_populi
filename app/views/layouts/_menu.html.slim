@@ -10,12 +10,7 @@ nav.navbar.navbar-default
     #menu.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
 
-        - if cookies[:locale] == 'ru'
-          li
-            = link_to t('menu.en'), change_locale_path(:en)
-        - else
-          li
-            = link_to t('menu.ru'), change_locale_path(:ru)
+        = render 'partials/locale'
 
         - if current_user
           li
