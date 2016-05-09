@@ -47,6 +47,8 @@ gem 'groupdate', '~> 2.5', '>= 2.5.2'
 
 gem 'sypex_geo', '~> 0.2.4'
 
+gem 'searchkick', '~> 1.3'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'

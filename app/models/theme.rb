@@ -13,6 +13,7 @@ class Theme < ActiveRecord::Base
   before_save :capitalize_title
 
   acts_as_voteable
+  searchkick
 
   def capitalize_title
     self.title = title.capitalize
