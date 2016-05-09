@@ -7,8 +7,12 @@ class ThemesController < ApplicationController
   helper_method :current_city
 
   def index
-    @themes = Theme.where(category_id: params[:category_id])
-    @themes = @themes.page(params[:page]).per(10)
+    if params[:query].present?
+      @themes = Theme.search params[:query], page: params[:page], where: { category_id: params[:category_id] }
+    else
+      @themes = Theme.where(category_id: params[:category_id])
+      @themes = @themes.page(params[:page]).per(10)
+    end
   end
 
   def new

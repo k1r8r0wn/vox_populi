@@ -182,6 +182,10 @@ en:
       total_votes: 'Total votes:'
       want_to_revote: 'Change your mind?'
 
+    search:
+      search_problem: 'Search for problem'
+      clear: 'Clear'
+
   comments:
     create:
       success: 'Comment is successfully added below!'

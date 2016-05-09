@@ -2,6 +2,7 @@
   .col-md-12.text-center
     h2.title
       = t('.problems', category: category_name_locale)
+      = render 'themes/search'
 
 .row
   .col-md-12.text-center
@@ -30,9 +31,7 @@
                   small.text-muted
                     = t('.created', time: time_ago_in_words(theme.created_at))
 
-      .row
-        .col-md-12.text-center
-          = paginate @themes
+      = paginate @themes
 
       = link_to t('.create'), new_category_theme_path(@category), class: 'btn btn-success', type: 'button'
 

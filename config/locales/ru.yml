@@ -181,6 +181,10 @@ ru:
       total_votes: 'Все голоса:'
       want_to_revote: 'Изменили мнение?'
 
+    search:
+      search_problem: 'Найти проблему'
+      clear: 'Очистить'
+
   comments:
     create:
       success: 'Комментарий успешно добавлен ниже!'
