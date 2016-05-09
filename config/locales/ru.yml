@@ -7,6 +7,8 @@ ru:
       category: 'категория'
       theme: 'проблема'
       comment: 'комментарий'
+      vote: 'голос'
+      provider: 'провайдер'
 
     attributes:
       user:
@@ -16,18 +18,49 @@ ru:
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
         current_password: 'Текущий пароль'
+        reset_password_sent_at: 'Сброс пароля выслан'
+        remember_created_at: 'Запоминание создано'
+        sign_in_count: 'Количество заходов'
+        current_sign_in_ip: 'Текущий ip адрес'
+        last_sign_in_ip: 'Последний ip адрес'
+        confirmation_token: 'Токен для подтверждения'
+        confirmed_at: 'Подтвержден'
+        confirmation_sent_at: 'Подтверждение отправлено'
+        unconfirmed_email: 'Неподтверждённый email'
+        role: 'Роль'
+        created_at: 'Cоздана'
+        updated_at: 'Обновлена'
       city:
-        title: 'Название'
+        name: 'Название'
+        ru_name: 'Название по-русски'
+        created_at: 'Cоздана'
+        updated_at: 'Обновлена'
       category:
         name: 'Название'
         ru_name: 'Название по-русски'
         image: 'Фотография'
+        created_at: 'Cоздана'
+        updated_at: 'Обновлена'
       theme:
         title: 'Заголовок'
         content: 'Контент'
+        created_at: 'Cоздана'
+        updated_at: 'Обновлена'
       comment:
         content: 'Комментарий'
-
+        created_at: 'Cоздана'
+        updated_at: 'Обновлена'
+      vote:
+        vote: 'Голос'
+        voteable: 'Голос за'
+        voter: 'Проголосовавший'
+        created_at: 'Cоздана'
+        updated_at: 'Обновлена'
+      provider:
+        name: 'Имя'
+        uid: 'Uid'
+        created_at: 'Cоздана'
+        updated_at: 'Обновлена'
   pages:
     home:
       h1: "«Мира, которого вы хотели, можно добиться. Он существует.. он реален.. он возможен.. он ваш.»"

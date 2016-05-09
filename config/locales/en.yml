@@ -7,6 +7,8 @@ en:
       category: 'category'
       theme: 'problem'
       comment: 'comment'
+      vote: 'vote'
+      provider: 'provider'
 
     attributes:
       user:
@@ -16,17 +18,50 @@ en:
         password: 'Password'
         password_confirmation: 'Password confirmation'
         current_password: 'Current password'
+        reset_password_sent_at: 'Reset password sent at'
+        remember_created_at: 'Remember created at'
+        sign_in_count: 'Sign in count'
+        current_sign_in_ip: 'Current sign in ip'
+        last_sign_in_ip: 'Last sign in ip'
+        confirmation_token: 'Confirmation token'
+        confirmed_at: 'Confirmed at'
+        confirmation_senе_at: 'Confirmation send at'
+        unconfirmed_email: 'Unconfirmed email'
+        role: 'Role'
+        created_at: 'Created at'
+        updated_at: 'Updated_at'
       city:
-        title: 'Title'
+        name: 'Name'
+        ru_name: 'Russian name'
+        created_at: 'Created at'
+        updated_at: 'Updated_at'
       category:
         name: 'Name'
         ru_name: 'Russian name'
         image: 'Image'
+        user_id: 'User'
+        created_at: 'Created at'
+        updated_at: 'Updated_at'
       theme:
         title: 'Title'
         content: 'Content'
+        created_at: 'Created at'
+        updated_at: 'Updated_at'
       comment:
         content: 'Comment'
+        created_at: 'Created at'
+        updated_at: 'Updated_at'
+      vote:
+        vote: 'Vote'
+        voteable: 'Voteable'
+        voter: 'Voter'
+        created_at: 'Created at'
+        updated_at: 'Updated_at'
+      provider:
+        name: 'Name'
+        uid: 'Uid'
+        created_at: 'Created at'
+        updated_at: 'Updated_at'
 
   pages:
     home:
