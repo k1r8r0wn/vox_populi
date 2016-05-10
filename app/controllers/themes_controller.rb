@@ -8,7 +8,9 @@ class ThemesController < ApplicationController
 
   def index
     if params[:query].present?
-      @themes = Theme.search params[:query], page: params[:page]
+      @themes = Theme.search params[:query],
+      page: params[:page],
+      where: { category_id: params[:category_id] }
     else
       @themes = Theme.where(category_id: params[:category_id])
       @themes = @themes.page(params[:page]).per(10)
