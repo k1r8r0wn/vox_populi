@@ -1,6 +1,6 @@
 class ThemesController < ApplicationController
 
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :autocomplete]
   before_action :set_category, except: [:new_separate, :create_separate]
   before_action :set_theme, only: [:show, :edit, :update, :destroy]
 
@@ -8,7 +8,7 @@ class ThemesController < ApplicationController
 
   def index
     if params[:query].present?
-      @themes = Theme.search params[:query], page: params[:page], where: { category_id: params[:category_id] }
+      @themes = Theme.search params[:query], page: params[:page]
     else
       @themes = Theme.where(category_id: params[:category_id])
       @themes = @themes.page(params[:page]).per(10)
@@ -94,6 +94,14 @@ class ThemesController < ApplicationController
 
   def current_city
     @city ||= get_current_city
+  end
+
+  def autocomplete
+    render json: Theme.search(
+      params[:term],
+      fields: [{ title: :word_start }],
+      where: { category_id: params[:category_id] }
+    ).map(&:title)
   end
 
   private

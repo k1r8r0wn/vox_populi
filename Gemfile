@@ -48,6 +48,7 @@ gem 'groupdate', '~> 2.5', '>= 2.5.2'
 gem 'sypex_geo', '~> 0.2.4'
 
 gem 'searchkick', '~> 1.3'
+gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 
 group :development, :test do
   gem 'byebug'

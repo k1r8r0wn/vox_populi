@@ -14,3 +14,6 @@ $ ->
 # Enable tooltips everywhere
   $('[data-toggle="tooltip"]').tooltip()
 
+# Enable autocmplete on themes(problems) search
+  $('#search').autocomplete
+    source: $('#search').data('autocomplete-source')

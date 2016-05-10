@@ -1,6 +1,13 @@
 = form_tag category_themes_path, class: 'navbar-form search-form', role: 'search', method: :get do
   .input-group
-    = text_field_tag :query, params[:query], class: 'form-control', placeholder: t('.search_problem'), autofocus: 'autofocus', required: true
+    = text_field_tag :query,
+            params[:query],
+            class: 'form-control',
+            id: 'search',
+            placeholder: t('.search_problem'),
+            required: true,
+            data: { autocomplete_source: autocomplete_category_themes_path }
+
     .input-group-btn
       button.btn.btn-default.search type='submit'
         i.glyphicon.glyphicon-search
