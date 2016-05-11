@@ -1,7 +1,7 @@
 .row
   .col-md-12.text-center
     h2.title
-      = t('.problems', category: category_name_locale)
+      = t('.problems', category: category_name_locale(@category))
       = render 'themes/search'
 
 .row

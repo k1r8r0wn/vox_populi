@@ -1,12 +1,12 @@
 module ThemesHelper
 
-  def is_theme_owner?
-    current_user == @theme.user || current_user.admin? || current_user.moderator?
+  def is_theme_owner?(theme)
+    current_user == theme.user || current_user.admin? || current_user.moderator?
   end
 
-  def build_theme
-    @theme.city_id = current_city.try(:id) if @theme.city_id.blank? && current_city
-    @theme
+  def add_theme(theme)
+    theme.city_id = current_city.try(:id) if theme.city_id.blank? && current_city
+    theme
   end
 
   def form_name_locale
@@ -17,11 +17,11 @@ module ThemesHelper
     end
   end
 
-  def category_name_locale
+  def category_name_locale(category)
     if cookies[:locale] == 'ru'
-      @category.ru_name
+      category.ru_name
     else
-      @category.name
+      category.name
     end
   end
 

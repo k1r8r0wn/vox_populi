@@ -3,7 +3,7 @@
     h2.title.text-center
       = t('.edit')
 
-    = simple_form_for [@category, build_theme] do |t|
+    = simple_form_for [@category, add_theme(@theme)] do |t|
       = render partial: 'form', locals: {t: t}
       .text-center
         = t.submit t('buttons.update'), class: 'btn btn-success'

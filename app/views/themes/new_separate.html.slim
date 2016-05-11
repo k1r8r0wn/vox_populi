@@ -3,7 +3,7 @@
     h2.title.text-center
       = t('.create')
 
-    = simple_form_for build_theme, url: create_separate_path, method: :post do |t|
+    = simple_form_for add_theme(@theme), url: create_separate_path, method: :post do |t|
       = t.association :city,
         label_method: form_name_locale,
         label: t('.choose_city'),

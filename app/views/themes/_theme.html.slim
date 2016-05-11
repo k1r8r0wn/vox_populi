@@ -4,7 +4,7 @@
 
   - if current_user && (current_user.admin? || current_user.moderator?)
     .links.theme
-      - if is_theme_owner?
+      - if is_theme_owner?(@theme)
         = link_to '', edit_category_theme_path(@category, @theme), class: 'glyphicon glyphicon-pencil'
         = link_to '', category_theme_path(@category, @theme),
                 method: :delete,
