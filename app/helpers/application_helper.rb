@@ -14,4 +14,13 @@ module ApplicationHelper
     nil
   end
 
+  def html_lang
+    case cookies[:locale]
+    when 'ru'
+      'ru'
+    when 'en'
+      'en'
+    end
+  end
+
 end
