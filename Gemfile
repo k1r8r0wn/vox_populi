@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.3.1'
+
 gem 'rails', '4.2.6'
 
 gem 'rails_admin', '~> 0.8.1'
@@ -33,8 +34,6 @@ gem 'jquery-turbolinks', '~> 2.1'
 
 gem 'jbuilder', '~> 2.4', '>= 2.4.1'
 
-gem 'sdoc', '~> 0.4.1', group: :doc
-
 gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'omniauth-facebook', '~> 3.0'
 gem 'pundit', '~> 1.1'
@@ -66,9 +65,12 @@ end
 group :test do
   gem 'capybara', '~> 2.7'
   gem 'capybara-email', '~> 2.5'
+  gem 'capybara-webkit', '~> 1.11', '>= 1.11.1'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
   gem 'simplecov', '~> 0.11.2', require: false
 end
+
+gem 'sdoc', '~> 0.4.1', group: :doc
 
 gem 'rails_12factor', '~> 0.0.3', group: :production
