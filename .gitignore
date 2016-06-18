@@ -21,7 +21,5 @@
 .rspec
 public/uploads
 .byebug_history
-.ruby-gemset
-.ruby-version
 
 coverage
